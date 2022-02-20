@@ -1,0 +1,32 @@
+.visitas{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+    gap: 20px;
+    padding: 3rem;
+}
+
+.visitas h2{
+    font-size: 4rem;
+}
+
+.visitas button{
+    padding: 1rem 2rem;
+    font-size: 1.5rem;
+    border-radius: 5px;
+    border: 1px solid rgb(153, 149, 149);
+    cursor: pointer;
+}
+
+.visitas button:hover{
+    background-color: #1976D2;
+    border: 1px solid #034f9b;
+    color: white;
+}
+
+.viaje{
+    align-items: center;
+    width: 50%;
+}
