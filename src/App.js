@@ -1,20 +1,24 @@
 import './App.css';
-import Carrousel from './components/Carrousel'
 import Navbar from './components/Navbar'
-import Hero from './components/Hero'
 import Footer from './components/Footer'
-import Cards from './components/Cards'
-import Visita from './components/visita';
+import Home from './components/home';
+import Cities from './components/cities';
+
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 function App() {
   return (
-    <div className="App">
-      <Navbar/>
-      <Hero/>
-      <Visita/>
-      <Carrousel/>
-      
-    </div>
+    <BrowserRouter>
+      <div className="App">
+          <Navbar/>
+          <Routes>
+            <Route path='*' element={<Home/> }/>
+            <Route path='/home' element={<Home/> }/>
+            <Route path='/cities' element={<Cities/> }/>
+          </Routes>
+          <Footer/>
+        </div>
+    </BrowserRouter>
   );
 }
 

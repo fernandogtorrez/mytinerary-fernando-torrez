@@ -1,0 +1,13 @@
+.link{
+  text-decoration: none;
+  color: white;
+}
+
+.link:hover{
+    text-decoration: none;
+    color: white;
+}
+
+.linkresp{
+    text-decoration: none;
+}

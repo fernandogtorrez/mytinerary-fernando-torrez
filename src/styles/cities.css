@@ -1,0 +1,9 @@
+.cities{
+    width: 100%;
+    height: 83vh;
+    background-image: url(../../public/imagenes/const.png);
+    background-repeat: no-repeat;
+    background-size: 65%;
+    background-position: center;
+    background-color: white;
+}

@@ -11,6 +11,7 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
+import {Link as LinkRouter} from 'react-router-dom'
 
 const pages = ['Home', 'Cities'];
 const settings = ['Log in', 'Sign up'];
@@ -75,12 +76,13 @@ const Navbar = () => {
               sx={{
                 display: { xs: 'block', md: 'none' },
               }}
-            >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+              > 
+                <MenuItem>
+                    <LinkRouter to='Home' className='linkresp'>Home</LinkRouter>
                 </MenuItem>
-              ))}
+                <MenuItem>
+                    <LinkRouter to='Cities' className='linkresp'>Cities</LinkRouter>
+                </MenuItem>
             </Menu>
           </Box>
           <Typography
@@ -92,15 +94,16 @@ const Navbar = () => {
             MyTinerary
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
-              >
-                {page}
-              </Button>
-            ))}
+            <MenuItem>
+              <LinkRouter to='home' className='link'>
+                <Button color='inherit'>Home</Button>
+              </LinkRouter>
+            </MenuItem>
+            <MenuItem>
+              <LinkRouter to='cities' className='link'>
+                <Button color='inherit'>Cities</Button>
+              </LinkRouter>
+            </MenuItem>
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>

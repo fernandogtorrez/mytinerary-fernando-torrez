@@ -20,8 +20,7 @@ export default function App() {
       <Swiper
         slidesPerView={4}
         grid={{
-          /* rows: 2, */
-          columns:2,
+          columns: 2
         }}
         slidesPerGroup={4}
         spaceBetween={30}
@@ -58,19 +57,17 @@ export default function App() {
         className="mySwiper"
       >
         {datos.map(item =>
-        <SwiperSlide key={item.id}>
-            <div className="slide-content">
-                <div className="user-img">
-                    <img src={process.env.PUBLIC_URL+ `/imagenes/${item.image}`} />
-                    <h3>{item.country}</h3>
-                </div>
-                
+          <SwiperSlide className="swiperslide">
+            <div className="title">
+            <img className="img-city" src={process.env.PUBLIC_URL+ `/imagenes/${item.image}`} />
+              <h2>{item.country}</h2>
+              <h3>{item.cities}</h3>
             </div>
-            
-               
-        </SwiperSlide>
+          </SwiperSlide>
         )}
       </Swiper>
     </>
   );
 }
+  
+
