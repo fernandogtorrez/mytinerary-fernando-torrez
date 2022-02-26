@@ -1,6 +1,6 @@
 import React from 'react'
 import Hero from './Hero'
-import Visita from './visita'
+import Visita from './Visita'
 import Carrousel from './Carrousel'
 
 

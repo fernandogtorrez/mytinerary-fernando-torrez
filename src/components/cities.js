@@ -1,10 +1,18 @@
 import React from 'react'
 import '../styles/cities.css'
+import Card from './Cards'
+import Herocities from './Herocities'
+import Input from './input'
 
 const Cities = () => {
   return (
     <div className='cities'>
-        <p>No hay nada</p>
+      <Herocities/>
+        <Input/>
+        <Card/>
+        <Card/>
+        <Card/>
+        <Card/>
     </div>
   )
 }

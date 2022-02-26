@@ -1,0 +1,88 @@
+.body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 4rem;
+}
+
+.carta{
+    width: 375px;
+    height: 75%;
+    background: rgb(246, 246, 246);
+    border-radius: 5px;
+    text-align: center;
+    border: 1px solid black;
+}
+
+.img-sec{
+    height: 250px;
+    width: 100%;
+    background-image: url(../../public/images/buenosaires.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    object-fit: cover;
+}
+
+.info{
+    color: white;
+}
+
+.title-carta{
+    font-size: 2rem;
+    color: rgb(0, 0, 0);
+    padding: .5rem 1rem;
+    letter-spacing: -1px;
+
+}
+
+.parrafo-carta{
+    font-size: 1rem;
+    padding: 0 3rem;
+    color: black;
+}
+
+.btn-enviar{
+    height: 103px;
+    margin-top: 17px;
+    display: flex;
+    justify-content: center;
+}
+
+.btn-enviar button{
+    width: 176px;
+    height: 50px;
+    align-self: center;
+    border-radius: 60px;
+    text-transform: uppercase;
+    color: white;
+    background: blue;
+    border: 1px solid blueviolet;
+}
+
+.btn-enviar button:hover{
+    color: white;
+    background: rgb(2, 2, 138);
+    border: 1px solid rgb(55, 0, 107);
+}
+
+@media (min-width:1140px) {
+    .carta{
+        height: 25rem;
+        width: 60rem;
+        display: flex;
+        flex-direction: row;
+        border: 1px solid black;
+    }
+    .img-sec{
+        height: 100%;
+        width: 100%;
+        background-image: url(../../public/images/lima.jpg);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+    h1,h2{
+        padding: 1rem;
+    }
+}

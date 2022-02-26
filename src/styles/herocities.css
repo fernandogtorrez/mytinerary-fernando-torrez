@@ -1,0 +1,65 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    width: 100%;
+    height: 100vh;
+}
+.herocities-container{
+    background: url('/public/images/hero.jpg');
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    width: 100%;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.herocities-container .title2{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.title2 h1{
+    font-size: 4rem;
+}
+
+.input-cities{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 3rem;
+    gap: 25px;
+}
+
+.input-cities input{
+    height: 3rem;
+    font-size: 1.2rem;
+    outline: none;
+    border-radius: .5rem;
+    border: 1px solid #ccc;
+    padding-left: 1rem;
+    border-bottom-width: 2px;
+    transition: all 0.3s ease; 
+}
+
+.input-cities input:focus{
+    border-color: #1976D2;
+}
+
+@media (min-width:1140px) {
+    .input-cities{
+        flex-direction: row;
+        gap: 25px;
+    }
+}
+
