@@ -1,8 +1,7 @@
 import React from 'react'
 import '../styles/cities.css'
-import Cards from './Cards'
-import Herocities from './Herocities'
-/* import Input from './input' */
+import Cards from '../components/Cards'
+import Herocities from '../components/Herocities'
 
 const Cities = () => {
   return (

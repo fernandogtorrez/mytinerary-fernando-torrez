@@ -1,7 +1,7 @@
 import React from 'react'
-import Hero from './Hero'
-import Visita from './visita'
-import Carrousel from './Carrousel'
+import Hero from '../components/Hero'
+import Visita from '../components/visita'
+import Carrousel from '../components/Carrousel'
 
 const Home = () => {
   return (
