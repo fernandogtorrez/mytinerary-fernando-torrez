@@ -1,18 +1,14 @@
 import React from 'react'
 import '../styles/cities.css'
-import Card from './Cards'
+import Cards from './Cards'
 import Herocities from './Herocities'
-import Input from './input'
+/* import Input from './input' */
 
 const Cities = () => {
   return (
     <div className='cities'>
       <Herocities/>
-        <Input/>
-        <Card/>
-        <Card/>
-        <Card/>
-        <Card/>
+        <Cards/>
     </div>
   )
 }

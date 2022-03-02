@@ -4,9 +4,8 @@ import Footer from './components/Footer'
 import Home from './components/home';
 import Cities from './components/cities';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { useState } from 'react';
-import {useState,state} from 'react';
-import axios from '/axios'
+import {useState,state, useEffect} from 'react';
+import axios from 'axios'
 
 
 function App() {
@@ -14,7 +13,7 @@ function App() {
   const [apidata, setApiData] = useState([])
 
   useEffect(()=>{
-  axios.get(`http://localhost:4000/api/ciudades`)
+  axios.get(`http://localhost:4000/api/V1/allcities`)
   .then(response => console.log(response.data.response.ciudades))
   },[])
   return (

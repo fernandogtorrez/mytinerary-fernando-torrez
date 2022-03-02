@@ -8,7 +8,7 @@ body{
     height: 100vh;
 }
 .herocities-container{
-    background: url('/public/images/hero.jpg');
+    background: url('/public/images/imagescard.jpg');
     background-position: center;
     background-size: cover;
     background-attachment: fixed;
@@ -29,37 +29,12 @@ body{
 }
 
 .title2 h1{
-    font-size: 4rem;
-}
-
-.input-cities{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    margin-top: 3rem;
-    gap: 25px;
-}
-
-.input-cities input{
-    height: 3rem;
-    font-size: 1.2rem;
-    outline: none;
-    border-radius: .5rem;
-    border: 1px solid #ccc;
-    padding-left: 1rem;
-    border-bottom-width: 2px;
-    transition: all 0.3s ease; 
-}
-
-.input-cities input:focus{
-    border-color: #1976D2;
+    font-size: 2.5rem;
 }
 
 @media (min-width:1140px) {
-    .input-cities{
-        flex-direction: row;
-        gap: 25px;
+    .title2 h1{
+        font-size: 4rem;
     }
 }
 

@@ -1,4 +1,4 @@
-/* #app { height: 100% }
+#app { height: 100% }
 html,
 body {
   position: relative;
@@ -16,7 +16,7 @@ body {
 
 .swiper {
   width: 60%;
-  height: 60%;
+  height: 30%;
   margin-left: auto;
   margin-right: auto;
   overflow: hidden;
@@ -39,15 +39,15 @@ body {
   -ms-flex-align: center;
   -webkit-align-items: center;
   align-items: center;
-} */
+}
 
 /* .swiper-wrapper{
   width: 100% !important;
 } */
 
-/* .img-city{
-  width: 500px;
-  height: 400px;
+.img-city{
+  width: 350px;
+  height: 350px;
   border-radius: 2rem;
   overflow: hidden;
 }
@@ -64,6 +64,7 @@ body {
   width: 100%;
   height: 100%;
   margin-top: 0;
+  flex-wrap: wrap;
 }
 
 .popular{
@@ -78,15 +79,23 @@ body {
   justify-content: center;
   align-items: center;
 }
+swiper-wrapper{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.title{
+  position: relative;
+}
 
 .layer h3{
   text-transform: capitalize;
-} */
+}
 
-/* .layer {
+.layer {
   position: absolute;
-  top: 0;
-  left: 40;
+  top: 100px;
+  right: 80px;
   width: 55%;
   height: 100%;
   text-align: center;
@@ -100,40 +109,4 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-}
- */
- .carouselTitle{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-weight: bold;
-  color: black!important;
-}
-
-.swiper {
-  width: 60%;
-  height: 60%;
-  margin-left: auto;
-  margin-right: auto;
-  overflow: hidden;
-}
-
-.swiper-slide {
-  text-align: center;
-  font-size: 18px;
-  height: calc((100% - 30px) / 2) !important;
-
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  -webkit-justify-content: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  -webkit-align-items: center;
-  align-items: center;
-
 }

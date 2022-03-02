@@ -1,9 +1,9 @@
 const mongoose = require('mongoose')
 
 mongoose.connect(process.env.MONGO_URI,{
-    useUnifiendTopology: true,
+    useUnifiedTopology: true, 
     useNewUrlParser: true,
 })
 
-.then(()=>console.log('Database conected'))
+.then(()=>console.log("Database conected"))
 .catch(err => console.error(err))

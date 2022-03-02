@@ -36,8 +36,9 @@ const ciudadesController = {
     modificarCiudad: async (req, res)=>{
         const id = req.params.id
         const ciudad = req.body.dataInput
-        console.log(req.body)
-        console.log(req.params)
+
+        let ciudadb = await Ciudades.findOneAndUpdate({_id:id}, ciudad)
+        console.log(ciudadb)
     }
 }
-module.exports =ciudadesController
+module.exports = ciudadesController
