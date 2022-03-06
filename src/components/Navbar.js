@@ -74,7 +74,7 @@ const Navbar = () => {
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
               sx={{
-                display: { xs: 'block', md: 'none' },
+                display: { xs: 'block', md: 'none'},
               }}
               > 
                 <MenuItem>
@@ -93,7 +93,7 @@ const Navbar = () => {
           >
             MyTinerary
           </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex', justifyContent: 'center'}}}>
             <MenuItem>
               <LinkRouter to='home' className='link'>
                 <Button color='inherit'>Home</Button>

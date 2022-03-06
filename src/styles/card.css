@@ -86,6 +86,23 @@
     border-color: #1976D2;
 }
 
+.noencontrado{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    padding: 2rem;
+}
+.noencontrado img{
+    width: 30%;
+    height: 30%;
+}
+.noencontrado h2{
+    font-size: 30px;
+    font-weight: 500;
+}
+
 @media (min-width:1140px) {
     .carta{
         height: 25rem;
@@ -109,5 +126,17 @@
     .input-cities{
         flex-direction: row;
         gap: 25px;
+    }
+    .noencontrado{
+        gap: 10px;
+        padding: 3rem;
+    }
+    .noencontrado img{
+        width: 30%;
+        height: 30%;
+    }
+    .noencontrado h2{
+        font-size: 40px;
+        font-weight: 700;
     }
 }
