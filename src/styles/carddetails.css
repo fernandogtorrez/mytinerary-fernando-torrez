@@ -6,12 +6,14 @@
     justify-content: center;
     align-items: center;
     color: #999696;
+    
 }
 
 .itineraryBody {
     width: 90%;
     border-radius: 30px;
     box-shadow: 0 0 19px 6px hsl(0deg 0% 57% / 39%);
+    
     padding: 3vh 2vw;
     margin-bottom: 5vh;
 }
@@ -20,22 +22,25 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
+    background-color: aqua;
 }
 
 .itineraryImg {
     width: 22vw;
     height: 60vh;
-    background-image: url(https://i.postimg.cc/VLgGJkSF/atacamanightjpg.jpg);
+    background-image: url(https://wp-growpro.s3-eu-west-1.amazonaws.com/media/2020/08/viajes-para-aprender-ingles.jpg);
     background-position: 50%;
     background-size: cover;
     background-repeat: no-repeat;
     border-radius: 20px;
+    
 }
 
 .itineraryInfo {
     width: 70%;
     display: flex;
     flex-direction: column;
+    background-color: red;
 }
 
 .justify-content-between {
@@ -45,6 +50,7 @@
 .itineraryAuthor {
     display: flex;
     align-items: center;
+    background-color: blue;
 }
 
 .authorPhoto {
@@ -57,6 +63,7 @@
     margin-left: 2vw;
     font-weight: 700;
     font-size: 5vmin;
+    
 }
 
 .adventure {
@@ -66,11 +73,13 @@
     background-position: 50%;
     background-size: cover;
     background-repeat: no-repeat;
+    background-color: rgb(15, 216, 82);
 }
 
 .itineraryTitle {
     display: flex;
     align-items: center;
+    background-color: rgb(202, 190, 13);
 }
 
 .activitiesHeader h2, .commentsTittle h4, .itineraryTitle h2 {
@@ -78,6 +87,7 @@
     padding: 1vh 2vw;
     margin-top: 2vh;
     color: #999696;
+    
 }
 
 .likes {
@@ -85,10 +95,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    
 }
 
 .itineraryDescrip {
     font-size: 1.3em;
+    background-color: rgb(202, 13, 170);
 }
 
 .hashtags {
@@ -107,6 +119,7 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    
 }
 
 .itineraryTime {
@@ -131,4 +144,130 @@
     width: 100%;
     display: flex;
     flex-direction: column;
+    background-color: rgb(241, 173, 25);
+}
+
+.activitiesSection {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 3vh;
+}
+
+.commentConst{
+    padding: 1em;
+    width: 50%;
+    border-radius: 20px;
+    box-shadow: 0 0 6px 3px rgb(175 174 174 / 25%);
+    min-height: 60vh;
+}
+
+.commentTitle h3{
+    font-size: 2em;
+}
+
+.comments {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2vh;
+    overflow-y: auto;
+    margin-left: 1vw;
+    z-index: -1;
+    min-height: 50vh;
+}
+
+.commentData {
+    margin-bottom: 0.8em;
+}
+
+.commentData, .userComment {
+    display: flex;
+    align-items: center;
+}
+
+.commentContainer {
+    display: flex;
+    margin-left: 0.5em;
+}
+
+.comment {
+    display: flex;
+    background-color: #e9e9eb;
+    border-radius: 20px;
+    padding-right: 0.4em;
+}
+
+.userName p {
+    margin: .1;
+    font-weight: 450;
+    color: #615f5f;
+}
+
+.comment p {
+    color: #000;
+    text-align: start;
+    margin: 0 0 0 1vw;
+    padding: 1vh 3vw 1vh 0;
+    flex-wrap: wrap;
+}
+
+.containerInputComment {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    width: 70%;
+    border: 2px solid #e6e3e3;
+    background-color: #e6e3e3;
+    margin: 0 auto;
+}
+
+.commentInput{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    width: 70%;
+    border: 2px solid #e6e3e3;
+    background-color: #e6e3e3;
+    margin: 0 auto;
+}
+
+.inputComment, .inputEdit {
+    padding: 1vh 2vw;
+    background-color: transparent;
+    border: none;
+    width: 90%;
+    outline: none;
+}
+
+.itineraryBtn{
+    display: flex;
+    justify-content: center;
+}
+
+.formButtons button, .itineraryBtn button {
+    padding: 1rem;
+    background-color: #000;
+    color: #fff;
+    font-weight: 700;
+    box-shadow: inset 0 0 0 0 #fff;
+    transition: .6s ease-out;
+    border: 2px solid #000;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.comingSoon {
+    padding: 3.5rem 0;
+}
+
+.back {
+    color: #f5f5f5;
+    padding: 1rem;
+    font-weight: 700;
+    font-size: 1.2rem;
+    border-radius: 10px;
+    background-color: #0e0e0e;
+    border: none;
 }
