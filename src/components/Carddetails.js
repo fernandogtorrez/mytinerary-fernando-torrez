@@ -1,5 +1,6 @@
+import { LinkRounded } from '@mui/icons-material'
 import React from 'react'
-import '../styles/carddetails'
+import '../styles/carddetails.css'
 
 const Carddetails = () => {
   return (
@@ -38,11 +39,63 @@ const Carddetails = () => {
                 </div>
             </div>
             <div className='itineraryUnder'>
-                <div></div>
+                <div className='activitiSeccion'>
+                    <div>
+
+                    </div>
+                    <div className='commentConst'>
+                        <div className='commentTitle'>
+                            <h3>Comment Title</h3>
+                        </div>
+                        <div className='comments'>
+                            <div className='commentData'>
+                                    <div className='userIcon'></div>
+                                    <div className='commentContainer'>
+                                        <div className='comment'>
+                                            <div className='userName'>
+                                                <p>Fernando Torrez</p>
+                                                <p>Felicidades</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                            </div>
+                            <div className='commentData'>
+                                    <div className='userIcon'></div>
+                                    <div className='commentContainer'>
+                                        <div className='comment'>
+                                            <div className='userName'>
+                                                <p>Fernando Torrez</p>
+                                                <p>Felicidades</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                            </div>
+                            <div className='commentData'>
+                                <div className='userIcon'></div>
+                                <div className='commentContainer'>
+                                    <div className='comment'>
+                                        <div className='userName'>
+                                            <p>Fernando Torrez</p>
+                                            <p>Felicidades</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className='commentInput'>
+                            <input className='inputComment' type='text' placeholder='escriba' />
+                        </div>
+                    </div>
+                </div>
             </div>
             <div className='itineraryBtn'>
-
+                <button>Click aqui</button>
             </div>
+        </div>
+        <div className='comingSoon'>
+            <a href='/cities'>
+                <button className='back'>Regresar a cities</button>
+            </a>
         </div>
     </div>
   )

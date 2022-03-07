@@ -10,7 +10,6 @@ const app = express()
 //middlewares
 app.use(cors())
 app.use(express.json())
-
 app.use('/api/V1', Router)
 
 app.listen(PORT,()=>console.log('Server ready on PORT'+PORT))

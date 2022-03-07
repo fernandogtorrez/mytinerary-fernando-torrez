@@ -1,0 +1,134 @@
+.itinerariesBox{
+    padding: 2rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #999696;
+}
+
+.itineraryBody {
+    width: 90%;
+    border-radius: 30px;
+    box-shadow: 0 0 19px 6px hsl(0deg 0% 57% / 39%);
+    padding: 3vh 2vw;
+    margin-bottom: 5vh;
+}
+
+.itineraryHead {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.itineraryImg {
+    width: 22vw;
+    height: 60vh;
+    background-image: url(https://i.postimg.cc/VLgGJkSF/atacamanightjpg.jpg);
+    background-position: 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 20px;
+}
+
+.itineraryInfo {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+}
+
+.justify-content-between {
+    justify-content: space-between!important;
+}
+
+.itineraryAuthor {
+    display: flex;
+    align-items: center;
+}
+
+.authorPhoto {
+    min-width: 8vw;
+    height: 16vh;
+    border-radius: 50%;
+}
+
+.authorName {
+    margin-left: 2vw;
+    font-weight: 700;
+    font-size: 5vmin;
+}
+
+.adventure {
+    order: last;
+    width: 20vw;
+    height: 25vh;
+    background-position: 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.itineraryTitle {
+    display: flex;
+    align-items: center;
+}
+
+.activitiesHeader h2, .commentsTittle h4, .itineraryTitle h2 {
+    font-size: 2.5em;
+    padding: 1vh 2vw;
+    margin-top: 2vh;
+    color: #999696;
+}
+
+.likes {
+    width: 10vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.itineraryDescrip {
+    font-size: 1.3em;
+}
+
+.hashtags {
+    width: 45%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.hashtags p {
+    color: #585858;
+    font-size: 1.3em;
+    cursor: pointer;
+}
+
+.itineraryIcons {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.itineraryTime {
+    display: flex;
+    align-items: center;
+    font-size: 1.1em;
+}
+
+.itineraryPrice {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 2em;
+}
+
+.itineraryTime img {
+    width: 1.3em;
+}
+
+.itineraryUnder {
+    text-align: center;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}

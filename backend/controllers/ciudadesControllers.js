@@ -17,6 +17,26 @@ const ciudadesController = {
             error: error
         })
     },
+    obtenerUnaCiudad: async (req, res) =>{
+        const id = req.params.id
+        console.log(req.params);
+
+        let ciudad
+        let error = null
+
+        try{
+            ciudad = await Ciudades.findOne({_id:id})
+            console.log(ciudad);
+        }catch(err){
+            error = err
+            console.log(error);
+        }
+        res.json({
+            response: error ? 'ERROR' : ciudad,
+            success: error ? false : true,
+            error: error
+        })
+    },
     cargarCiudad: async(req, res)=>{
         console.log(req.body)
         const {ciudad, pais, descripcion}= req.body.dataInput
@@ -30,14 +50,15 @@ const ciudadesController = {
 
     borrarCiudad: async (req, res)=>{
         const id = req.params.id
-        console.log(req.params);
         await Ciudades.findOneAndDelete({_id:id})
+        .then((respuesta) => res.json({respuesta}))
     },
     modificarCiudad: async (req, res)=>{
         const id = req.params.id
         const ciudad = req.body.dataInput
 
         let ciudadb = await Ciudades.findOneAndUpdate({_id:id}, ciudad)
+        .then((respuesta) => res.json({respuesta}))
         console.log(ciudadb)
     }
 }

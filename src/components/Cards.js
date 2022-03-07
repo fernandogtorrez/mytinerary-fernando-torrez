@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "../styles/card.css";
+import {Link as LinkRouter} from 'react-router-dom'
 
 const Cards = () => {
   const [allcities, setAllCities] = useState([]);
@@ -82,7 +83,7 @@ const Cards = () => {
                 <h2 className="title-carta">{datos.cities}</h2>
                 <p className="parrafo-carta">{datos.description}</p>
                 <div className="btn-enviar">
-                <LinkRouter to={`detalle/${datos.id}`}>
+                <LinkRouter to={`/details/${datos._id}`}>
                   <button>See more</button>
                 </LinkRouter>
                 </div>
