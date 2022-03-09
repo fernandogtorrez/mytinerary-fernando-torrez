@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "../styles/card.css";
 import {Link as LinkRouter} from 'react-router-dom'
+import { connect } from "react-redux";
 
 const Cards = () => {
   const [allcities, setAllCities] = useState([]);
