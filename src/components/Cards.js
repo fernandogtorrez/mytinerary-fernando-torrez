@@ -3,74 +3,29 @@ import axios from "axios";
 import "../styles/card.css";
 import {Link as LinkRouter} from 'react-router-dom'
 import { connect } from "react-redux";
+import citiesAction from "../redux/actions/citiesActions";
 
-const Cards = () => {
-  const [allcities, setAllCities] = useState([]);
-  const [cardsCities, setCardsCities] = useState([]);
-  /* const [data, setData] = useState();
-    const [searchResults, setSearchResults] = useState(); */
-  const [search, setSearch] = useState("");
-
-  const getApi = async () => {
-    await axios
-      .get("http://localhost:4000/api/V1/allcities")
-      .then((response) => {
-        setAllCities(response.data.response.ciudades);
-        setCardsCities(response.data.response.ciudades);
-        /* setData(response.data.response.cities); */
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
+const Cards = (props) => {
 
   useEffect(() => {
-    getApi();
+    props.fetchCities()
   }, []);
 
-  /* useEffect(()=>{
-        if (searchResults !== undefined){
-            setData(searchResults)
-        }
-    
-    },[searchResults]) */
-
-  const handleChange = (e) => {
-    setSearch(e.target.value);
-    filtrar(e.target.value);
-  };
-
-  const filtrar = (terminoBusqueda) => {
-    let resultadoBusqueda = cardsCities.filter((elemento) => {
-      if (
-        elemento.cities
-          .toString()
-          .toLowerCase()
-          .startsWith(terminoBusqueda.toLowerCase().trim()) ||
-        elemento.country
-          .toString()
-          .toLowerCase()
-          .startsWith(terminoBusqueda.toLowerCase().trim())
-      ) {
-        return elemento;
-      }
-    });
-    setAllCities(resultadoBusqueda);
-  };
+  
 
   return (
     <>
       <div className="input-cities">
         <h3>Find the city of your dreams!</h3>
-        <input
+        {/* <input
           type="text"
           value={search}
           onChange={handleChange}
           placeholder="Enter yout destination..."
-        />
+        /> */}
       </div>
-      {allcities.length > 0 ? (
-        allcities?.map((datos) => (
+      {props.cities.length > 0 ? (
+        props.cities?.map((datos) => (
           <div className="body">
             <div className="carta">
               <div className="img-sec">
@@ -104,4 +59,19 @@ const Cards = () => {
   );
 };
 
-export default Cards;
+const mapDispatchToProps = {
+
+  fetchCities: citiesAction.fetchCities,
+
+  }
+
+  const mapStateToProps = (state) =>{
+
+  return {
+
+    cities: state.citiesReducer.cities,
+    auxiliar: state.citiesReducer.auxiliar,
+
+  }
+  }
+  export default connect(mapStateToProps, mapDispatchToProps)(Cards);
