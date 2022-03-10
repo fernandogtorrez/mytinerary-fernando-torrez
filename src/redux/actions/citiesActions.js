@@ -10,12 +10,16 @@ const citiesAction = {
         }  
     },
 
+    filterCities: (cities,value)=>{
+        return (dispatch, getState)=>{
+            dispatch({type: 'filter', payload: {cities,value } })
+        }
+    },
+
     fetchOneCity: (id) =>{
         return async (dispatch,getState) => {
             const res = await axios.get('http://localhost:4000/api/V1/allcities')
             dispatch({type: 'fetchOne', payload: res.data.response.ciudades})
-
-
         }
     },
     
@@ -26,18 +30,6 @@ const citiesAction = {
 
         }
     },
-
-    filterCities: (cities,value)=>{
-        return (dispatch, getState)=>{
-            dispatch({type: 'filt', payload: {cities,value } })
-        }
-    }
-    
-
-    
-
-
-
 }
 
 export default citiesAction

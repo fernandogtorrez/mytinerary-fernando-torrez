@@ -5,7 +5,6 @@ const mainReducer = combineReducers({
 
     citiesReducer
 
-
 })
 
 export default mainReducer

@@ -10,22 +10,24 @@ const Cards = (props) => {
   useEffect(() => {
     props.fetchCities()
   }, []);
+  console.log(props);
 
-  
+  const filtrarCities = (event) => {
+    props.filterCities(props.cities, event.target.value)
+  }
 
   return (
     <>
       <div className="input-cities">
         <h3>Find the city of your dreams!</h3>
-        {/* <input
+        <input
           type="text"
-          value={search}
-          onChange={handleChange}
+          onChange={filtrarCities}
           placeholder="Enter yout destination..."
-        /> */}
+        />
       </div>
-      {props.cities.length > 0 ? (
-        props.cities?.map((datos) => (
+      {props.filtrandoCities.length > 0 ? 
+        props.filtrandoCities?.map((datos) => (
           <div className="body">
             <div className="carta">
               <div className="img-sec">
@@ -47,14 +49,14 @@ const Cards = (props) => {
             </div>
           </div>
         ))
-      ) : (
+       : 
         <div className="noencontrado">
           <h2>Oops! No results for your search.</h2>
           <img src="/images/turista2.png"/>
           <h2>Try another please...</h2>
         </div>
       
-      )}
+      }
     </>
   );
 };
@@ -62,6 +64,7 @@ const Cards = (props) => {
 const mapDispatchToProps = {
 
   fetchCities: citiesAction.fetchCities,
+  filterCities: citiesAction.filterCities,
 
   }
 
@@ -71,7 +74,7 @@ const mapDispatchToProps = {
 
     cities: state.citiesReducer.cities,
     auxiliar: state.citiesReducer.auxiliar,
-
+    filtrandoCities: state.citiesReducer.filtrandoCities,
   }
   }
   export default connect(mapStateToProps, mapDispatchToProps)(Cards);
