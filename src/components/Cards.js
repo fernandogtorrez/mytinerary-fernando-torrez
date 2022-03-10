@@ -10,7 +10,6 @@ const Cards = (props) => {
   useEffect(() => {
     props.fetchCities()
   }, []);
-  console.log(props);
 
   const filtrarCities = (event) => {
     props.filterCities(props.cities, event.target.value)

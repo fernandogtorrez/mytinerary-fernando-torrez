@@ -18,7 +18,7 @@ const citiesAction = {
 
     fetchOneCity: (id) =>{
         return async (dispatch,getState) => {
-            const res = await axios.get('http://localhost:4000/api/V1/allcities')
+            const res = await axios.get(`http://localhost:4000/api/V1/allcities/${id}`)
             dispatch({type: 'fetchOne', payload: res.data.response.ciudades})
         }
     },
@@ -30,6 +30,7 @@ const citiesAction = {
 
         }
     },
+
 }
 
 export default citiesAction

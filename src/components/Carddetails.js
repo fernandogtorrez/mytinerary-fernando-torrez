@@ -15,6 +15,12 @@ import ShareIcon from '@mui/icons-material/Share';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 
+import { useParams } from 'react-router-dom';
+import { useEffect } from 'react';
+import { connect } from 'react-redux';
+import itineraryAction from '../redux/actions/itineraryActions';
+import citiesAction from '../redux/actions/citiesActions';
+
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
   return <IconButton {...other} />;
@@ -26,13 +32,14 @@ const ExpandMore = styled((props) => {
   }),
 }));
 
-export default function RecipeReviewCard() {
+const RecipeReviewCard = (props) => {
 
     useEffect(()=>{
-        props
+        props.fetchItinerario()
+        props.fetchOneItinerario(_id)
     })
-    const {id} = useParams()
-    console.log(id);
+    const {_id} = useParams()
+    console.log(_id);
 
   const [expanded, setExpanded] = React.useState(false);
 
@@ -117,3 +124,22 @@ export default function RecipeReviewCard() {
     </Card>
   );
 }
+
+const mapDispatchToProps = {
+  
+    fetchCities: citiesAction.fetchCities,
+    fetchOneCity: citiesAction.fetchOneCity,
+    fetchItinerarios: itineraryAction.fetchItinerario,
+    fetchOneItinerario: itineraryAction.fetchOneItinerario,
+  
+    }
+  
+    const mapStateToProps = (state) =>{
+  
+    return {
+      /* cities: state.citiesReducer.cities,
+      city : state.citiesReducer.city, */
+      itinerarioCity: state.itineraryReducer.itinerarioCity
+    }
+    }
+    export default connect(mapStateToProps, mapDispatchToProps)(RecipeReviewCard);
