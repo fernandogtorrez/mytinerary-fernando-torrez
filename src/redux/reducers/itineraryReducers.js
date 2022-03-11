@@ -14,11 +14,10 @@ const itinerarioReducer = (state= initialState, action)=>{
                 itineraries: action.payload,
                 aux: action.payload,
             }
-            case 'fetchOneItinerario':
+            case 'fetchItinerarioPorId':
                 return{
                     ...state,
                     itinerarioCity: action.payload,
-                    aux: action.payload
                 }
         default:
             return state

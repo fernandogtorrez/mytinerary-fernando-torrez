@@ -37,6 +37,25 @@ const itinerariesController = {
             error: error
         })
     },
+    obtenerItinerariosPorId: async (req, res) =>{
+        const id =  req.params.id
+
+        let itinerario
+        let error = null
+
+        try{
+            itinerario = await Itinerarios.find({id_city:id})
+            console.log(itinerario)
+        }catch(err){
+            error = err
+            console.log(error);
+        }
+        res.json({
+            response: error ? 'ERROR' : itinerario,
+            success: error ? false : true,
+            error : error
+        })
+    },
    /*  cargarItinerario: async(req, res)=>{
         console.log(req.body)
         const {ciudad, pais, descripcion}= req.body.dataInput

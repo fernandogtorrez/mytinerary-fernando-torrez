@@ -15,11 +15,8 @@ import ShareIcon from '@mui/icons-material/Share';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 
-import { useParams } from 'react-router-dom';
-import { useEffect } from 'react';
 import { connect } from 'react-redux';
 import itineraryAction from '../redux/actions/itineraryActions';
-import citiesAction from '../redux/actions/citiesActions';
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
