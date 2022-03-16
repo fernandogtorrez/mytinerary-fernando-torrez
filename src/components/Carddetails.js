@@ -15,9 +15,6 @@ import ShareIcon from '@mui/icons-material/Share';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 
-import { connect } from 'react-redux';
-import itineraryAction from '../redux/actions/itineraryActions';
-
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
   return <IconButton {...other} />;
@@ -29,14 +26,7 @@ const ExpandMore = styled((props) => {
   }),
 }));
 
-const RecipeReviewCard = (props) => {
-
-    useEffect(()=>{
-        props.fetchItinerario()
-        props.fetchOneItinerario(_id)
-    })
-    const {_id} = useParams()
-    console.log(_id);
+const Carddetails = ({data}) => {
 
   const [expanded, setExpanded] = React.useState(false);
 
@@ -44,33 +34,38 @@ const RecipeReviewCard = (props) => {
     setExpanded(!expanded);
   };
 
+  console.log({data});
+
   return (
     <Card sx={{ maxWidth: 345 }}>
-      <CardHeader
-        avatar={
-          <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-            R
-          </Avatar>
-        }
-        action={
-          <IconButton aria-label="settings">
-            <MoreVertIcon />
-          </IconButton>
-        }
-        title="Shrimp and Chorizo Paella"
-        subheader="September 14, 2016"
-      />
+      <div className='flex-header'>
+        <CardHeader
+          avatar={
+            <Avatar aria-label="recipe">
+              <CardMedia
+                component= 'img'
+                height='40px'
+                image={process.env.PUBLIC_URL + `/images/${data.image}`}
+                alt='imagen de usuario'
+              />
+            </Avatar>
+          }
+          
+        />
+        <div className='name-title'>
+          <h5>{data.username}</h5>
+          <p>{data.itineraryName}</p>
+        </div>
+      </div>
       <CardMedia
         component="img"
         height="194"
-        image="/static/images/cards/paella.jpg"
+        image={process.env.PUBLIC_URL + `/images/${data.image}`}
         alt="Paella dish"
       />
       <CardContent>
         <Typography variant="body2" color="text.secondary">
-          This impressive paella is a perfect party dish and a fun meal to cook
-          together with your guests. Add 1 cup of frozen peas along with the mussels,
-          if you like.
+          {data.price}
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
@@ -122,21 +117,4 @@ const RecipeReviewCard = (props) => {
   );
 }
 
-const mapDispatchToProps = {
-  
-    fetchCities: citiesAction.fetchCities,
-    fetchOneCity: citiesAction.fetchOneCity,
-    fetchItinerarios: itineraryAction.fetchItinerario,
-    fetchOneItinerario: itineraryAction.fetchOneItinerario,
-  
-    }
-  
-    const mapStateToProps = (state) =>{
-  
-    return {
-      /* cities: state.citiesReducer.cities,
-      city : state.citiesReducer.city, */
-      itinerarioCity: state.itineraryReducer.itinerarioCity
-    }
-    }
-    export default connect(mapStateToProps, mapDispatchToProps)(RecipeReviewCard);
+export default Carddetails;

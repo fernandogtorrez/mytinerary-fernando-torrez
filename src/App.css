@@ -11,3 +11,16 @@
 .linkresp{
     text-decoration: none;
 }
+
+/* ::-webkit-scrollbar{
+  display: block;
+} */
+
+/* html,body{
+  overflow-x: hidden;
+} */
+
+.navbar{
+  width: 100% !important;
+  padding: none;
+}

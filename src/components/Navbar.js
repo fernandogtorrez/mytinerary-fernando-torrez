@@ -36,7 +36,7 @@ const Navbar = () => {
   };
 
   return (
-    <AppBar position="fixed">
+    <AppBar position="fixed" className='navbar'>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Typography
@@ -104,6 +104,16 @@ const Navbar = () => {
                 <Button color='inherit'>Cities</Button>
               </LinkRouter>
             </MenuItem>
+            <MenuItem>
+              <LinkRouter to='signin' className='link'>
+                <Button color='inherit'>Sign In</Button>
+              </LinkRouter>
+            </MenuItem>
+            <MenuItem>
+              <LinkRouter to='signup' className='link'>
+                <Button color='inherit'>Sign Up</Button>
+              </LinkRouter>
+            </MenuItem>
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
@@ -113,7 +123,7 @@ const Navbar = () => {
               </IconButton>
             </Tooltip>
             <Menu
-              sx={{ mt: '45px' }}
+              sx={{ mt: '45px'}}
               id="menu-appbar"
               anchorEl={anchorElUser}
               anchorOrigin={{
@@ -128,11 +138,12 @@ const Navbar = () => {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
+              <MenuItem>
+                    <LinkRouter to='Signin' className='linkresp'>Sign In</LinkRouter>
                 </MenuItem>
-              ))}
+                <MenuItem>
+                    <LinkRouter to='Signup' className='linkresp'>Sign Up</LinkRouter>
+                </MenuItem>
             </Menu>
           </Box>
         </Toolbar>

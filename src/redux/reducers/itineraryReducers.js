@@ -14,7 +14,7 @@ const itinerarioReducer = (state= initialState, action)=>{
                 itineraries: action.payload,
                 aux: action.payload,
             }
-            case 'fetchItinerarioPorId':
+        case 'fetchItinerarioPorCity':
                 return{
                     ...state,
                     itinerarioCity: action.payload,

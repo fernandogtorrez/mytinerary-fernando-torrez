@@ -9,7 +9,7 @@ import itineraryAction from '../redux/actions/itineraryActions'
 
 const Details = (props) => {
 
-  const id = useParams()
+  const {id} = useParams()
   console.log(id);
 
   const dispatch = useDispatch()
@@ -17,8 +17,8 @@ const Details = (props) => {
   console.log(itinerarios);
 
   useEffect(() =>{
-    dispatch(itineraryAction.fetchItinerarioPorId)
-  })
+    dispatch(itineraryAction.fetchItinerarioPorCity(id))
+  },[])
 
   return (
     <div>

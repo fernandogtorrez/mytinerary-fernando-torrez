@@ -17,26 +17,6 @@ const itinerariesController = {
             error: error
         })
     },
-    obtenerUnItinerario: async (req, res) =>{
-        const id = req.params.id
-        console.log(req.params);
-
-        let itinerario
-        let error = null
-
-        try{
-            itinerario = await Itinerarios.findOne({_id:id})
-            console.log(itinerario);
-        }catch(err){
-            error = err
-            console.log(error);
-        }
-        res.json({
-            response: error ? 'ERROR' : itinerario,
-            success: error ? false : true,
-            error: error
-        })
-    },
     obtenerItinerariosPorId: async (req, res) =>{
         const id =  req.params.id
 
@@ -56,13 +36,18 @@ const itinerariesController = {
             error : error
         })
     },
-   /*  cargarItinerario: async(req, res)=>{
+    cargarItinerario: async(req, res)=>{
         console.log(req.body)
-        const {ciudad, pais, descripcion}= req.body.dataInput
+        const {userName, price, like, duration, hashtags, image, comment, id_city}= req.body
         new Itinerarios({
-            nombre: ciudad,
-            pais:pais,
-            descripcion: descripcion,
+            userName,
+            price,
+            like,
+            duration,
+            hashtags,
+            image,
+            comment,
+            id_city,
         }).save()
         .then((respuesta)=> res.json({respuesta}))
     },
@@ -79,6 +64,6 @@ const itinerariesController = {
         let itinerariodb = await Itinerarios.findOneAndUpdate({_id:id}, itinerario)
         .then((respuesta) => res.json({respuesta}))
         console.log(itinerariodb)
-    } */
+    }
 }
 module.exports = itinerariesController

@@ -1,19 +1,24 @@
 import axios from "axios";
 
-
 const itineraryAction = {
 
     fetchItinerario: () => {
         return async(dispatch,getState)=>{
             const res = await axios.get('http://localhost:4000/api/V1/itineraries')
-            dispatch({type: 'fetchItinerario' ,payload:res.data.response.itinerarios}) 
+            dispatch({type: 'fetchItinerario' ,payload:res.data.response})
+            console.log(res.data);
         }  
     },
 
-    fetchOneItinerario: (id) =>{
-        return async (dispatch,getState) => {
-            const res = await axios.get('http://localhost:4000/api/V1/itineraries')
-            dispatch({type: 'fetchOneItinerario', payload: res.data.response.itinerarios})
+    fetchItinerarioPorCity: (id) => {
+        return async (dispatch, getState) => {
+            try{
+                const res = await axios.get(`http://localhost:4000/api/V1/itineraries/${id}`)
+                dispatch({type: 'fetchItinerarioPorCity', payload: res.data.response})
+                console.log(res.data);
+            }catch(err){
+                console.log(err);
+            }
         }
     },
 
