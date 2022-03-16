@@ -16,6 +16,7 @@ const Login = (props) => {
       from: 'form-Signin'
     }
     props.signInUser(logedUser)
+    console.log(logedUser)
   }
   return (
     <div className='contain-form2'>
@@ -26,13 +27,13 @@ const Login = (props) => {
                       <div className='input-contenedor'>
                         <div className='input-center'>
                           <FontAwesomeIcon className='font-icon' icon={faEnvelope} />
-                          <input type='email' placeholder='Email'/>
+                          <input name='email' type='email' placeholder='Email'/>
                         </div>
                       </div>
                       <div className='input-contenedor'>
                         <div className='input-center'>
                           <FontAwesomeIcon className='font-icon' icon={faKey} />
-                          <input type='password' placeholder='Password'/>
+                          <input name='password' type='password' placeholder='Password'/>
                         </div>
                       </div>
                       <div className='input-btn'>

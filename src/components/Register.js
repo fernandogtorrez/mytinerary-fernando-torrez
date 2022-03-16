@@ -7,7 +7,8 @@ import { connect } from 'react-redux';
 import userActions from '../redux/actions/userActions'
 
 const Register = (props) => {
-    const pais = ['Argentina', 'Chile', 'Peru', 'Brasil']
+    /* const pais = ['Argentina', 'Chile', 'Peru', 'Brasil'] */
+    console.log(props);
 
     const handleSubmit = (event) => {
         event.preventDefault()
@@ -16,9 +17,12 @@ const Register = (props) => {
             lastName: event.target[1].value,
             email: event.target[2].value,
             password: event.target[3].value,
+            userPhoto: event.target[4].value,
+            country: event.target[5].value,
             from: 'form-Signup'
         }
         props.signUpUser(userData)
+        console.log(props.message)
     }
 
   return (
@@ -30,40 +34,40 @@ const Register = (props) => {
                     <div className='input-contenedor'>
                         <div className='input-center'>
                             <FontAwesomeIcon className='font-icon' icon={faUser} />
-                            <input type='text' placeholder='FirstName'/>
+                            <input name='firstName' type='text' placeholder='FirstName'/>
                         </div>
                     </div>
                     <div className='input-contenedor'>
                         <div className='input-center'>
                             <FontAwesomeIcon className='font-icon' icon={faUser} />
-                            <input type='text' placeholder='LastName'/>
+                            <input name='lastName' type='text' placeholder='LastName'/>
                         </div>
                     </div>
                     <div className='input-contenedor'>
                         <div className='input-center'>
                             <FontAwesomeIcon className='font-icon' icon={faEnvelope} />
-                            <input type='email' placeholder='Email'/>
+                            <input name='email' type='email' placeholder='Email'/>
                         </div>
                     </div>
                     <div className='input-contenedor'>
                         <div className='input-center'>
                             <FontAwesomeIcon className='font-icon' icon={faKey} />
-                            <input type='password' placeholder='Password'/>
+                            <input name='password' type='password' placeholder='Password'/>
                         </div>
                     </div>
                     <div className='input-contenedor'>
                         <div className='input-center'>
                             <FontAwesomeIcon className='font-icon' icon={faImage} />
-                            <input type='text' placeholder='URL picture profile'/>
+                            <input name='userPhoto' type='text' placeholder='URL picture profile'/>
                         </div>
                     </div>
                     <div className='input-contenedor'>
                         <div className='input-center'>
                             <FontAwesomeIcon className='font-icon' icon={faEarthAmericas} />
-                            <select id='country'>
-                                {pais.map(item =>
-                                <option>{item}</option>
-                                )}
+                            <select name='country' id='country'>
+                                
+                                <option value='arf'>arf</option>
+                               
                             </select>
                         </div>
                     </div>
@@ -86,10 +90,10 @@ const Register = (props) => {
 const mapDispatchToProps = {
     signUpUser: userActions.signUpUser,
 }
-const mapStateToProps = (state) => {
+/* const mapStateToProps = (state) => {
     return {
         message: state.userReducers.message,
     }
-}
+} */
 
-export default connect(mapStateToProps, mapDispatchToProps) (Register)
+export default connect(null, mapDispatchToProps) (Register)

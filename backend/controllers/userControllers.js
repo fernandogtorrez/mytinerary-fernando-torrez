@@ -1,10 +1,10 @@
 const User = require('../models/users')
 const bcryptjs = require('bcryptjs')
-const crypto = require('crypto')
+/* const crypto = require('crypto')
 const nodemailer = require('nodemailer')
-const jwt = require('jsonwebtoken')
+const jwt = require('jsonwebtoken') */
 
-const sendEmail = async (email, uniqueString) => {
+/* const sendEmail = async (email, uniqueString) => {
     const transporter = nodemailer.createTransport({
         host: 'smtp.gmail.com',
         port: 465,
@@ -27,10 +27,10 @@ const sendEmail = async (email, uniqueString) => {
         if(error){console.log(error)}
         else{console.log('Mensaje enviado')}
     })
-}
+} */
 
 const usersControllers = {
-    verifyEmail: async (req, res) => {
+   /*  verifyEmail: async (req, res) => {
         const { uniqueString } = req.params;
 
         const user = await User.findOne({uniqueString: uniqueString})
@@ -41,15 +41,15 @@ const usersControllers = {
             res.redirect('http://localhost:3000/')
         }
         else{ res.json({ success: false, response: 'Su email no se ha verificado'})}
-    },
+    }, */
 
-    signUpUsers: async (req,res) => {
-        console.log(req.body)
-        let {firstName, lastName, email, password, from} = req.body.userData
+    signUpUser: async (req,res) => {
+        let {firstName, lastName, email, password, userPhoto,country, from} = req.body.userData
+        console.log(req.body);
         const test = req.body.test
 
         try{
-            const usuarioExiste = await User.findOne({email})
+            const usuarioExiste = await User.findOne({email}) //BUSCAR SI EL USUARIO YA EXISTE EN DB
 
             if(usuarioExiste){
                 console.log(usuarioExiste.from.indexOf(from))
@@ -95,8 +95,10 @@ const usersControllers = {
                     lastName,
                     email,
                     password:[contraseñaHasheada],
-                    uniqueString: crypto.randomBytes(15).toString('hex'),
-                    emailVerificado: false,
+                    userPhoto,
+                    country,
+                    /* uniqueString: crypto.randomBytes(15).toString('hex'), */
+                    emailVerificado: true,//luego va false
                     from:[from],
                 })
 
@@ -112,7 +114,7 @@ const usersControllers = {
                     // PASAR EMAIL VERIFICADO A FALSE
                     // ENVIARLE EL EMAIL PARA VERIFICAR
                     await nuevoUsuario.save()
-                    await sendEmail(email, nuevoUsuario,uniqueString)// LLAMA A LA FUNCION ENCARGADA DEL ENVIO DEL CORREO ELECTRONICO
+                    /* await sendEmail(email, nuevoUsuario,uniqueString) */// LLAMA A LA FUNCION ENCARGADA DEL ENVIO DEL CORREO ELECTRONICO
 
                     res.json({
                         success: true,
@@ -146,8 +148,9 @@ const usersControllers = {
 
                     if(contraseñaCoincide.length > 0){
                         const userData = {
-                            id: usuarioExiste._id,
+                            /* id: usuarioExiste._id, */
                             firstName: usuarioExiste.firstName,
+                            lastName: usuarioExiste.lastName,
                             email : usuarioExiste.email,
                             from : usuarioExiste.from
                         }
@@ -159,7 +162,7 @@ const usersControllers = {
                             success: true,
                             from: from,
                             response: {token, userData},
-                            message: 'Bienvenido nuevamente '+userData.firstName,
+                            message: `Bienvenido nuevamente ${userData.firstName} ${userData.lastName}`,
                         })
                     }else{
                         res.json({
@@ -174,18 +177,19 @@ const usersControllers = {
                         console.log('resultado de busqueda de contraseña: '+(contraseñaCoincide.length > 0))
                         if(contraseñaCoincide.length > 0){
                             const userData ={
-                                id: usuarioExiste._id,
+                                /* id: usuarioExiste._id, */
                                 firstName: usuarioExiste.firstName,
+                                lastName: usuarioExiste.lastName,
                                 email: usuarioExiste.email,
                                 from: usuarioExiste.from
                             }
-                            const token = jwt.sign({userData}, process.env.SECRET_KEY, {expiresIn: 60* 60*24})
+                           /*  const token = jwt.sign({userData}, process.env.SECRET_KEY, {expiresIn: 60* 60*24}) */
 
                             res.json({
                                 success: true,
                                 from: from,
-                                response: {token, userData},
-                                message: 'Bienvenido nuevamente '+userData.firstName,
+                                response: {userData},
+                                message: `Bienvenido nuevamente ${userData.firstName} ${userData.lastName}`,
                             })
                         }else{
                             res.json({

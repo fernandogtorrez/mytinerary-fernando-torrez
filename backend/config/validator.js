@@ -1,4 +1,4 @@
-const joi = require('joi')
+/* const joi = require('joi')
 
 const validator = (req, res, next) => {
     const schema = joi.object({
@@ -31,4 +31,4 @@ const validator = (req, res, next) => {
     }
 
     next()
-}
+} */

@@ -8,7 +8,7 @@ const usersControllers = require('../controllers/userControllers')
 
 const {obtenerCiudades, obtenerUnaCiudad, cargarCiudad, borrarCiudad, modificarCiudad} = ciudadesController
 const {obtenerItinerarios, obtenerItinerariosPorId, cargarItinerario, modificarItinerario, borrarItinerario} = itinerariesController
-const {signUpUsers, signInUser, signOutUser} = usersControllers
+const {signUpUser, signInUser, signOutUser} = usersControllers
 
 Router.route('/allcities')
 .get(obtenerCiudades)
@@ -29,7 +29,7 @@ Router.route('/itineraries/:id')
 .put(modificarItinerario)
 
 Router.route('/auth/signUp')
-.post(validator,signUpUsers)
+.post(signUpUser)
 
 Router.route('/auth/signIn')
 .post(signInUser)
@@ -37,7 +37,7 @@ Router.route('/auth/signIn')
 Router.route('/auth/signOut')
 .post(signOutUser)
 
-Router.route('/verify/:uniquiString') // RECIBE EL LINK DE USUARIO
-.get(verifyEmail)// LLAMA A FUNCION DE VERIFICACION
+/* Router.route('/verify/:uniquiString') */ // RECIBE EL LINK DE USUARIO
+/* .get(verifyEmail) */// LLAMA A FUNCION DE VERIFICACION
 
 module.exports = Router
