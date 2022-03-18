@@ -5,6 +5,8 @@ import "../styles/login.css";
 import {Link as LinkRouter} from 'react-router-dom'
 import { connect } from 'react-redux';
 import userActions from '../redux/actions/userActions';
+import FacebookSignIn from '../components/FacebookSignIn'
+import GoogleSignIn from './GoogleSignIn';
 
 const Login = (props) => {
 
@@ -23,6 +25,11 @@ const Login = (props) => {
       <div className='contain-form'>
               <form className='formulario' onSubmit={handleSubmit}>
                   <h1>Welcome back!</h1>
+                  <GoogleSignIn/>
+                  <FacebookSignIn/>
+                  <div className="divide">
+                    <span>Or</span>
+                  </div>
                   <div className='contenedor-form'>
                       <div className='input-contenedor'>
                         <div className='input-center'>
@@ -37,10 +44,7 @@ const Login = (props) => {
                         </div>
                       </div>
                       <div className='input-btn'>
-                          <button className='btn-signin' type='submit'>Sign Up</button>
-                      </div>
-                      <div className='input-btn'>
-                          <button className='btn-signin' type='submit'>Sign Up with Google</button>
+                          <button className='btn-signin' type='submit'>Sign In</button>
                       </div>
                       <LinkRouter to='/Signup' className='linkresp'>
                         <p>Don't have an account yet?</p>

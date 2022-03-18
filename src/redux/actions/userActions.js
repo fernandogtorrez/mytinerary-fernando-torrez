@@ -7,14 +7,16 @@ const userActions = {
         return async (dispatch, getState) => {
             
             const res = await axios.post('http://localhost:4000/api/V1/auth/signUp',{userData})
-            console.log(res.data)
-            /* dispatch({
+            console.log(res)
+            console.log(userData);
+            dispatch({
                 type: 'message',
                 payload: {
                     view: true,
                     message: res.data.message,
                     success: res.data.success
-                }}) */
+                }})
+                console.log(userData);
         }
     },
         signInUser: (logedUser) => {
@@ -24,26 +26,25 @@ const userActions = {
                 const user = await axios.post('http://localhost:4000/api/V1/auth/signIn', {logedUser})
                 console.log(user.data);
                 if(user.data.success){
-                    /* localStorage.setItem('token', user.data.response.token) */
+                    localStorage.setItem('token', user.data.response.token)
                     dispatch({type: 'user', payload: user.data.response.userData})
-                    console.log(user.data.message);
                 }
 
-                /* dispatch({
+                dispatch({
                     type: 'message',
                     payload: {
                         view: true,
                         message: user.data.message,
                         success: user.data.success
-                    }}) */
+                    }})
             }
         },
-/*     SignOutUser: (closeuser) => {
+    SignOutUser: (closeuser) => {
         return async (dispatch, getState) => {
-            const user = axios.post('htttp://localhost:4000/api/V1/auth/signOut',{closeuser})
+            const user = axios.post('http://localhost:4000/api/V1/auth/signOut',{closeuser})
             localStorage.removeItem('token')
             dispatch({type: 'user', payload: null})
         }
-    } */
+    }
 }
 export default userActions;

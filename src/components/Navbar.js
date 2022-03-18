@@ -12,11 +12,17 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import {Link as LinkRouter} from 'react-router-dom'
+import { connect } from 'react-redux'
+import userActions from '../redux/actions/userActions';
 
-const pages = ['Home', 'Cities'];
-const settings = ['Log in', 'Sign up'];
+const Navbar = (props) => {
+  console.log(props);
 
-const Navbar = () => {
+  function SignOut() {
+    props.SignOutUser(props.user.email)
+  }
+
+
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -36,6 +42,8 @@ const Navbar = () => {
   };
 
   return (
+
+    <>
     <AppBar position="fixed" className='navbar'>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
@@ -104,22 +112,15 @@ const Navbar = () => {
                 <Button color='inherit'>Cities</Button>
               </LinkRouter>
             </MenuItem>
-            <MenuItem>
-              <LinkRouter to='signin' className='link'>
-                <Button color='inherit'>Sign In</Button>
-              </LinkRouter>
-            </MenuItem>
-            <MenuItem>
-              <LinkRouter to='signup' className='link'>
-                <Button color='inherit'>Sign Up</Button>
-              </LinkRouter>
-            </MenuItem>
           </Box>
-
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+              {!props.user ?
+                    <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                    :
+                    <img className='userPhoto' src={props.user.userPhoto}/>
+                    }
               </IconButton>
             </Tooltip>
             <Menu
@@ -138,17 +139,35 @@ const Navbar = () => {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              <MenuItem>
-                    <LinkRouter to='Signin' className='linkresp'>Sign In</LinkRouter>
-                </MenuItem>
-                <MenuItem>
-                    <LinkRouter to='Signup' className='linkresp'>Sign Up</LinkRouter>
-                </MenuItem>
+                {props.user ?
+                    <LinkRouter onClick={SignOut} to='Signout' className='linkresp'>SignOut</LinkRouter>
+                    :
+                    <>
+                      <MenuItem>
+                        <LinkRouter to='Signin' className='linkresp'>Sign In</LinkRouter>
+                      </MenuItem>
+                      <MenuItem>
+                        <LinkRouter to='Signup' className='linkresp'>Sign Up</LinkRouter>
+                      </MenuItem>
+                    </>
+                    }
             </Menu>
           </Box>
         </Toolbar>
       </Container>
     </AppBar>
+    </>
   );
 };
-export default Navbar;
+
+const mapStateToProps = (state) => {
+  return {
+    user: state.userReducers.user,
+  }
+}
+
+const mapDispatchToProps = {
+  SignOutUser: userActions.SignOutUser,
+}
+
+export default connect(mapStateToProps, mapDispatchToProps) (Navbar);

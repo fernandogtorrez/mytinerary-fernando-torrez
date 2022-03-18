@@ -7,25 +7,40 @@ import Details from './pages/details'
 import Signin from './pages/signin';
 import Signup from './pages/signup';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import Snackbar from './components/Snackbar';
+import { connect } from 'react-redux'
+import userActions from './redux/actions/userActions';
 
-function App() {
+function App(props) {
   return (
+    <>
     <BrowserRouter>
       <div className="App">
+          <Snackbar/>
           <Navbar/>
           <Routes>
             <Route path='*' element={<Home/> }/>
             <Route path='/home' element={<Home/> }/>
             <Route path='/cities' element={<Cities/>}/>
-            <Route path='/signin' element={<Signin/>}/>
-            <Route path='/signup' element={<Signup/>}/>
+            {!props.user && <Route path='/signin' element={<Signin/>}/>}
+            {!props.user && <Route path='/signup' element={<Signup/>}/>}
             <Route path ="/details/:id" element={<Details/>}/>
           </Routes>
           <Footer/>
         </div>
     </BrowserRouter>
+    </>
   );
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return {
+    user: state.userReducers.user,
+  }
+}
+
+const mapDispatchToProps = {
+  SignOutUser: userActions.SignOutUser,
+}
+
+export default connect(mapStateToProps, mapDispatchToProps) (App);

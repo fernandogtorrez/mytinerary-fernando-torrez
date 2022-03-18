@@ -8,14 +8,29 @@
     background-position: center;
     background-repeat: no-repeat;
     width: 80%;
+    height: 100vh;
     margin-top: 7rem;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 4rem;
+    padding: 160px 0;
 }
 
 .contain-form2{
+    display: flex;
+    justify-content: center;    
+}
+
+.formulario{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: 20%;
+    padding: 160px 0;
+}
+
+.formulario span{
     display: flex;
     justify-content: center;
 }
@@ -98,4 +113,14 @@
     text-align: center;
     color: white;
     font-size: 2rem;
+}
+
+.divide span{
+    font-size: 25px;
+    color: white;
+}
+
+.formulario .buttonsocial{
+    display: flex;
+    justify-content: center;
 }

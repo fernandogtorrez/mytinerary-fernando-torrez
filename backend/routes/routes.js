@@ -29,7 +29,7 @@ Router.route('/itineraries/:id')
 .put(modificarItinerario)
 
 Router.route('/auth/signUp')
-.post(signUpUser)
+.post(validator, signUpUser)
 
 Router.route('/auth/signIn')
 .post(signInUser)
@@ -37,7 +37,7 @@ Router.route('/auth/signIn')
 Router.route('/auth/signOut')
 .post(signOutUser)
 
-/* Router.route('/verify/:uniquiString') */ // RECIBE EL LINK DE USUARIO
-/* .get(verifyEmail) */// LLAMA A FUNCION DE VERIFICACION
+Router.route('/verify/:uniqueString') // RECIBE EL LINK DE USUARIO
+.get(verifyEmail)// LLAMA A FUNCION DE VERIFICACION
 
 module.exports = Router

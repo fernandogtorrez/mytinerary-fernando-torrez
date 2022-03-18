@@ -20,7 +20,13 @@
   overflow-x: hidden;
 } */
 
-.navbar{
-  width: 100% !important;
-  padding: none;
+.signout{
+  padding-top: 60px;
+}
+
+.userPhoto{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
 }

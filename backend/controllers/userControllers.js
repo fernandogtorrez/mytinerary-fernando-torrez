@@ -1,36 +1,40 @@
 const User = require('../models/users')
 const bcryptjs = require('bcryptjs')
-/* const crypto = require('crypto')
+const crypto = require('crypto')
 const nodemailer = require('nodemailer')
-const jwt = require('jsonwebtoken') */
+const jwt = require('jsonwebtoken')
 
-/* const sendEmail = async (email, uniqueString) => {
+const sendEmail = async (email, uniqueString) => {
     const transporter = nodemailer.createTransport({
         host: 'smtp.gmail.com',
         port: 465,
         secure: true,
         auth: {
-            user: 'miemaildegmail',
-            pass:'clavedegmail'
+            user: 'pruebadeusuario195@gmail.com',
+            pass:'talerista'
         }
     })
 
-    let sender = 'miemaildegmail'
+    let sender = 'pruebadeusuario195@gmail.com'
     let mailOptions = {
         from: sender,
         to: email,
         subject: 'Verificacion de email usuario',
-        html:`<h1>link</h1>`
+        html: `
+        <div >
+        <h1 style="color:red">Presiona <a href=http://localhost:4000/api/V1/verify/${uniqueString}>aqui</a> para confirma tu email. Gracias </h1>
+        </div>
+        `
     }
 
     await transporter.sendMail(mailOptions, function(error, response){
         if(error){console.log(error)}
         else{console.log('Mensaje enviado')}
     })
-} */
+}
 
 const usersControllers = {
-   /*  verifyEmail: async (req, res) => {
+    verifyEmail: async (req, res) => {
         const { uniqueString } = req.params;
 
         const user = await User.findOne({uniqueString: uniqueString})
@@ -41,12 +45,11 @@ const usersControllers = {
             res.redirect('http://localhost:3000/')
         }
         else{ res.json({ success: false, response: 'Su email no se ha verificado'})}
-    }, */
+    },
 
     signUpUser: async (req,res) => {
         let {firstName, lastName, email, password, userPhoto,country, from} = req.body.userData
-        console.log(req.body);
-        const test = req.body.test
+        console.log(password);
 
         try{
             const usuarioExiste = await User.findOne({email}) //BUSCAR SI EL USUARIO YA EXISTE EN DB
@@ -97,8 +100,8 @@ const usersControllers = {
                     password:[contraseñaHasheada],
                     userPhoto,
                     country,
-                    /* uniqueString: crypto.randomBytes(15).toString('hex'), */
-                    emailVerificado: true,//luego va false
+                    uniqueString: crypto.randomBytes(15).toString('hex'),
+                    emailVerificado: false,
                     from:[from],
                 })
 
@@ -114,7 +117,7 @@ const usersControllers = {
                     // PASAR EMAIL VERIFICADO A FALSE
                     // ENVIARLE EL EMAIL PARA VERIFICAR
                     await nuevoUsuario.save()
-                    /* await sendEmail(email, nuevoUsuario,uniqueString) */// LLAMA A LA FUNCION ENCARGADA DEL ENVIO DEL CORREO ELECTRONICO
+                    await sendEmail(email, nuevoUsuario.uniqueString)// LLAMA A LA FUNCION ENCARGADA DEL ENVIO DEL CORREO ELECTRONICO
 
                     res.json({
                         success: true,
@@ -148,10 +151,11 @@ const usersControllers = {
 
                     if(contraseñaCoincide.length > 0){
                         const userData = {
-                            /* id: usuarioExiste._id, */
+                            id: usuarioExiste._id,
                             firstName: usuarioExiste.firstName,
                             lastName: usuarioExiste.lastName,
                             email : usuarioExiste.email,
+                            userPhoto: usuarioExiste.userPhoto,
                             from : usuarioExiste.from
                         }
                         await usuarioExiste.save()
@@ -177,18 +181,18 @@ const usersControllers = {
                         console.log('resultado de busqueda de contraseña: '+(contraseñaCoincide.length > 0))
                         if(contraseñaCoincide.length > 0){
                             const userData ={
-                                /* id: usuarioExiste._id, */
+                                id: usuarioExiste._id,
                                 firstName: usuarioExiste.firstName,
                                 lastName: usuarioExiste.lastName,
                                 email: usuarioExiste.email,
+                                userPhoto: usuarioExiste.userPhoto,
                                 from: usuarioExiste.from
                             }
-                           /*  const token = jwt.sign({userData}, process.env.SECRET_KEY, {expiresIn: 60* 60*24}) */
-
+                            const token = jwt.sign({userData}, process.env.SECRET_KEY, {expiresIn: 60* 60*24})
                             res.json({
                                 success: true,
                                 from: from,
-                                response: {userData},
+                                response: {token, userData},
                                 message: `Bienvenido nuevamente ${userData.firstName} ${userData.lastName}`,
                             })
                         }else{
