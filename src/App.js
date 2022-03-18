@@ -1,3 +1,4 @@
+import React, {useEffect} from 'react'
 import './App.css';
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
@@ -12,6 +13,15 @@ import { connect } from 'react-redux'
 import userActions from './redux/actions/userActions';
 
 function App(props) {
+
+  useEffect(() => {
+ 
+    if(localStorage.getItem('token')!== null){
+      const token = localStorage.getItem("token")
+      props.VerificarToken(token)
+    }
+  },[])
+
   return (
     <>
     <BrowserRouter>
@@ -33,14 +43,18 @@ function App(props) {
   );
 }
 
+const mapDispatchToProps = {
+	VerificarToken: userActions.VerificarToken,
+
+}
+
 const mapStateToProps = (state) => {
   return {
-    user: state.userReducers.user,
+      user: state.userReducers.user,
   }
 }
 
-const mapDispatchToProps = {
-  SignOutUser: userActions.SignOutUser,
-}
 
-export default connect(mapStateToProps, mapDispatchToProps) (App);
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
+

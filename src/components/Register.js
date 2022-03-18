@@ -78,7 +78,7 @@ const Register = (props) => {
                             <select name='country' id='country'>
                             {countries.map(item => 
 
-                                <option value="{country}"> {item} </option>
+                                <option value="{countries}"> {item} </option>
 
                             )} 
                             </select>
