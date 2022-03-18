@@ -36,8 +36,11 @@ const Register = (props) => {
           <div className='contain-form'>
             <form className='formulario' onSubmit={handleSubmit}>
                 <h1>Welcome to MyTinerary!</h1>
-                <GoogleSignUp/>
-                <FacebookSignUp/>
+                <div className='cuentas'>
+                    <GoogleSignUp/>
+                    <FacebookSignUp/>
+                </div>
+                  
                 <div className="divide">
                     <span>Or</span>
                 </div>

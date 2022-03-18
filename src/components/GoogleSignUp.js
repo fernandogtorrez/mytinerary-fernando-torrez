@@ -8,11 +8,13 @@ function GoogleSignUp(props) {
 
   const responseGoogle = async (res) => {
     const userData = {
-      fullName: res.profileObj.givenName + " " + res.profileObj.familyName,
+      firstName: res.profileObj.givenName + " " + res.profileObj.familyName,
+      lastName: res.profileObj.givenName + " " + res.profileObj.familyName,
       email: res.profileObj.email,
       password: res.profileObj.googleId,
+      userPhoto: res.profileObj.imageUrl,
       from: "google",
-      pais:props.pais
+      country:'Argenzuela'
     }
     await props.signUpUser(userData)
   }
@@ -34,5 +36,10 @@ const mapDispatchToProps = {
   signUpUser: userActions.signUpUser,
 
 }
+const mapStateToProps = (state) => {
+  return {
+      user: state.userReducers.user,
+  }
+}
 
-export default connect(null, mapDispatchToProps)(GoogleSignUp);
+export default connect(mapStateToProps, mapDispatchToProps)(GoogleSignUp);

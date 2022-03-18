@@ -8,25 +8,23 @@
     background-position: center;
     background-repeat: no-repeat;
     width: 80%;
-    height: 100vh;
-    margin-top: 7rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 4rem;
-    padding: 160px 0;
 }
 
 .contain-form2{
     display: flex;
     justify-content: center;    
+    margin-top: 5rem;
+    /* padding-top: 5rem; */
 }
 
 .formulario{
     display: flex;
     justify-content: center;
     flex-direction: column;
-    height: 20%;
+    align-items: center;
     padding: 160px 0;
 }
 
@@ -123,4 +121,12 @@
 .formulario .buttonsocial{
     display: flex;
     justify-content: center;
+}
+
+.cuentas{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 50%;
+    align-items: center;
 }

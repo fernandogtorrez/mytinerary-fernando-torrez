@@ -46,7 +46,7 @@ const userActions = {
             dispatch({type: 'user', payload: null})
         }
     },
-    
+
     VerificarToken: (token) => {
 
         return async (dispatch, getState) => {

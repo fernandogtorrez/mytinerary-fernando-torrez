@@ -25,8 +25,11 @@ const Login = (props) => {
       <div className='contain-form'>
               <form className='formulario' onSubmit={handleSubmit}>
                   <h1>Welcome back!</h1>
+                  <div className='cuentas'>
                   <GoogleSignIn/>
                   <FacebookSignIn/>
+                  </div>
+                  
                   <div className="divide">
                     <span>Or</span>
                   </div>
