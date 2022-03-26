@@ -8,7 +8,6 @@ const userActions = {
             
             const res = await axios.post('http://localhost:4000/api/V1/auth/signUp',{userData})
             console.log(res)
-            console.log(userData);
             dispatch({
                 type: 'message',
                 payload: {

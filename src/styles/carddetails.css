@@ -1,273 +1,243 @@
-.itinerariesBox{
-    padding: 2rem;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: #999696;
-    
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.itineraryBody {
-    width: 90%;
-    border-radius: 30px;
-    box-shadow: 0 0 19px 6px hsl(0deg 0% 57% / 39%);
-    
-    padding: 3vh 2vw;
-    margin-bottom: 5vh;
-}
-
-.itineraryHead {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    background-color: aqua;
-}
-
-.itineraryImg {
-    width: 22vw;
-    height: 60vh;
-    background-image: url(https://wp-growpro.s3-eu-west-1.amazonaws.com/media/2020/08/viajes-para-aprender-ingles.jpg);
-    background-position: 50%;
-    background-size: cover;
-    background-repeat: no-repeat;
-    border-radius: 20px;
-    
-}
-
-.itineraryInfo {
-    width: 70%;
-    display: flex;
-    flex-direction: column;
-    background-color: red;
-}
-
-.justify-content-between {
-    justify-content: space-between!important;
-}
-
-.itineraryAuthor {
-    display: flex;
-    align-items: center;
-    background-color: blue;
-}
-
-.authorPhoto {
-    min-width: 8vw;
-    height: 16vh;
-    border-radius: 50%;
-}
-
-.authorName {
-    margin-left: 2vw;
-    font-weight: 700;
-    font-size: 5vmin;
-    
-}
-
-.adventure {
-    order: last;
-    width: 20vw;
-    height: 25vh;
-    background-position: 50%;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-color: rgb(15, 216, 82);
-}
-
-.itineraryTitle {
-    display: flex;
-    align-items: center;
-    background-color: rgb(202, 190, 13);
-}
-
-.activitiesHeader h2, .commentsTittle h4, .itineraryTitle h2 {
-    font-size: 2.5em;
-    padding: 1vh 2vw;
-    margin-top: 2vh;
-    color: #999696;
-    
-}
-
-.likes {
-    width: 10vw;
+.body{
     display: flex;
     justify-content: center;
     align-items: center;
-    
+    min-height: auto;
+    padding: 5rem 0;
 }
 
-.itineraryDescrip {
-    font-size: 1.3em;
-    background-color: rgb(202, 13, 170);
-}
-
-.hashtags {
-    width: 45%;
-    display: flex;
-    justify-content: space-around;
-}
-
-.hashtags p {
-    color: #585858;
-    font-size: 1.3em;
-    cursor: pointer;
-}
-
-.itineraryIcons {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    
-}
-
-.itineraryTime {
-    display: flex;
-    align-items: center;
-    font-size: 1.1em;
-}
-
-.itineraryPrice {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    font-size: 2em;
-}
-
-.itineraryTime img {
-    width: 1.3em;
-}
-
-.itineraryUnder {
-    text-align: center;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    background-color: rgb(241, 173, 25);
-}
-
-.activitiesSection {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    margin-bottom: 3vh;
-}
-
-.commentConst{
-    padding: 1em;
-    width: 50%;
-    border-radius: 20px;
-    box-shadow: 0 0 6px 3px rgb(175 174 174 / 25%);
-    min-height: 60vh;
-}
-
-.commentTitle h3{
-    font-size: 2em;
-}
-
-.comments {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 2vh;
-    overflow-y: auto;
-    margin-left: 1vw;
-    z-index: -1;
-    min-height: 50vh;
-}
-
-.commentData {
-    margin-bottom: 0.8em;
-}
-
-.commentData, .userComment {
-    display: flex;
-    align-items: center;
-}
-
-.commentContainer {
-    display: flex;
-    margin-left: 0.5em;
-}
-
-.comment {
-    display: flex;
-    background-color: #e9e9eb;
-    border-radius: 20px;
-    padding-right: 0.4em;
-}
-
-.userName p {
-    margin: .1;
-    font-weight: 450;
-    color: #615f5f;
-}
-
-.comment p {
-    color: #000;
-    text-align: start;
-    margin: 0 0 0 1vw;
-    padding: 1vh 3vw 1vh 0;
-    flex-wrap: wrap;
-}
-
-.containerInputComment {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 20px;
-    width: 70%;
-    border: 2px solid #e6e3e3;
-    background-color: #e6e3e3;
-    margin: 0 auto;
-}
-
-.commentInput{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 20px;
-    width: 70%;
-    border: 2px solid #e6e3e3;
-    background-color: #e6e3e3;
-    margin: 0 auto;
-}
-
-.inputComment, .inputEdit {
-    padding: 1vh 2vw;
-    background-color: transparent;
-    border: none;
-    width: 90%;
-    outline: none;
-}
-
-.itineraryBtn{
-    display: flex;
-    justify-content: center;
-}
-
-.formButtons button, .itineraryBtn button {
-    padding: 1rem;
-    background-color: #000;
-    color: #fff;
-    font-weight: 700;
-    box-shadow: inset 0 0 0 0 #fff;
-    transition: .6s ease-out;
-    border: 2px solid #000;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.comingSoon {
-    padding: 3.5rem 0;
-}
-
-.back {
-    color: #f5f5f5;
-    padding: 1rem;
-    font-weight: 700;
-    font-size: 1.2rem;
+.carddetails{
+    position: relative;
+    width: 65rem;
+    height: 400px;
+    height: 220px;
+    overflow: hidden;
+    background-color: rgb(206, 206, 206);
     border-radius: 10px;
-    background-color: #0e0e0e;
-    border: none;
+    padding: 20px;
+    transition: height 0.5s ease-in-out;
+    font-family: Helvetica, sans-serif;
+}
+
+.carddetails.active{
+    height: 600px;
+}
+
+.carddetails .content{
+    min-height: 180px;
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.perfil-foto{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.carddetails .content .profile{
+    position: relative;
+    width: 110px;
+    height: 110px;
+    border-radius: 84px;
+    overflow: hidden;
+}
+
+.carddetails .content .profile img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.carddetails .content .tittles{
+    margin-left: 20px;
+    font-size: 400;
+}
+
+.carddetails .content .hashAndDesc{
+    text-align: center;
+    margin-left: 30px;
+    font-size: 400;
+}
+
+.desc{
+    color: rgba(128, 128, 128, 0.705);
+}
+
+.hash{
+    color:#2275fa
+}
+
+.icons{
+    margin-left: 6rem;
+    display: flex;
+    flex-direction: row;
+
+}
+
+.icons p{
+    margin-left: 6rem;
+}
+
+.iconLike{
+    width: 40px;
+    height: 40px;
+}
+
+.nav-under{
+    position: relative;
+    top: 30px;
+    border-top: 1px solid rgba(0, 0, 0, 0.212);
+    padding: 10px 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.nav-under li{    
+    margin: 15px 0;
+    display: flex;
+    align-items: center;
+    color: #555;
+    font-size: 1.1rem;
+    transition: color 0.25s;
+}
+
+.nav-under li:hover{
+    color: #36b3ff;
+}
+
+.toggle{
+    position: absolute;
+    bottom: 20px;
+    /* width: 20px; */
+    height: 20px;
+    left: 400px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon{
+    color: white !important;
+}
+
+.toggle .icon{
+    font-size: 1.5rem;
+    transition: transform ease-in-out 0.5s;
+}
+
+.carddetails.active .toggle .icon{
+    transform: rotate(-180deg);
+}
+
+
+@media (max-width: 1144px){
+    .carddetails{
+        height: 250px;
+    }
+
+    .carddetails .content{
+        margin: 0;
+    }
+
+    .content{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .carddetails .content .tittles{
+        margin: 7px 30px;
+    }
+
+    .carddetails .content .hashAndDesc{
+        margin: 20px 0;
+    }
+
+    .carddetails .content .icons{
+        margin: 7px 0 0 50px;
+    }
+    
+    .carddetails.active{
+        height: 800px;
+    }
+
+    .nav-under{
+        top: 90px;
+        padding: 10px 0;
+    }
+}
+
+
+@media (max-width: 750px){
+    .carddetails{
+        height: 300px;
+    }
+
+    .carddetails .content .hashAndDesc{
+        margin: 20px 0;
+    }
+}
+
+
+@media (max-width: 644px){
+    .carddetails{
+        height: 370px;
+    }
+
+    .carddetails .content .hashAndDesc{
+        margin: 20px 0;
+    }
+
+    .carddetails .content .icons{
+        margin: 7px 30px;
+    }
+
+    .nav-under{
+        top: 87px;
+        padding: 10px 0;
+    }
+}
+
+
+@media (max-width: 494px){
+    .carddetails{
+        height: 440px;
+    }
+
+    .carddetails .content .tittles{
+        margin: 10px 30px;
+    }
+
+    .carddetails .content .hashAndDesc{
+        margin: 7px 0;
+    }
+
+    .carddetails .content .icons{
+        margin: 7px 0;
+    }
+
+    .tittles{
+        margin: 0;
+        text-align: center;
+    }
+
+    .nav-under{
+        top: 85px;
+        padding: 10px 0;
+    }
 }

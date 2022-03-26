@@ -142,14 +142,14 @@ const Navbar = (props) => {
                 {props.user ?
                     <LinkRouter onClick={SignOut} to='Signout' className='linkresp'>SignOut</LinkRouter>
                     :
-                    <>
+                    <div>
                       <MenuItem>
                         <LinkRouter to='Signin' className='linkresp'>Sign In</LinkRouter>
                       </MenuItem>
                       <MenuItem>
                         <LinkRouter to='Signup' className='linkresp'>Sign Up</LinkRouter>
                       </MenuItem>
-                    </>
+                    </div>
                     }
             </Menu>
           </Box>

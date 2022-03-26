@@ -55,7 +55,7 @@ function Snack(props) {
           onClose={handleClose}
           autoHideDuration={4000}
         >
-          <>
+          <div>
             {(typeof props.snackbar.message) === "string" ?
               (<p>{props.snackbar.message}</p>) :
               <ul>
@@ -67,7 +67,7 @@ function Snack(props) {
             <IconButton className={classes.icon} size="small" aria-label="close" color="inherit" onClick={handleClose}>
               <CloseIcon fontSize="small" />
             </IconButton>
-          </>
+          </div>
         </MySnackbar>
       )}
 

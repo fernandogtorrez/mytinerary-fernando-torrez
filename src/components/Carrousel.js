@@ -57,8 +57,8 @@ export default function App() {
         className="mySwiper"
       >
         <div className="d-flex justify-content-center flex-wrap">
-        {datos.map(item =>
-          <SwiperSlide className="swiperslide d-flex justify-content-center flex-wrap">
+        {datos.map((item,index) =>
+          <SwiperSlide key={index} className="swiperslide d-flex justify-content-center flex-wrap">
             <div className="title">
               <img className="img-city" src={process.env.PUBLIC_URL+ `/images/${item.image}`} />
               <div className="layer">

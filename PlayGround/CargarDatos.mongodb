@@ -22,7 +22,7 @@ db.itineraries.insertMany([
         "#hashtag2",
         "#hashtag3"
     ],
-    "image": "atenas.jpg",
+    "image": "fotomujer1.jpg",
     "comment": "",
     "id_city": "621ea1e2295a790c2eeb4fe2"
 },
@@ -37,39 +37,69 @@ db.itineraries.insertMany([
         "#hashtag2",
         "#hashtag3"
     ],
-    "image": "atenas.jpg",
+    "image": "fotomujer2.jpg",
     "comment": "",
     "id_city": "621ea1e2295a790c2eeb4fe2"
 },
 {
     "userName": "Tami Balderrama",
-    "itineraryName": "Paseo en globos",
+    "itineraryName": "DISCOVER TEOTIHUACAN",
     "price": 5,
     "like": 0,
     "duration": 5,
     "hashtags": [
-        "#hashtag1",
-        "#hashtag2",
-        "#hashtag3"
+        "#mexico",
+        "#aztec",
+        "#culture"
     ],
-    "image": "atenas.jpg",
+    "image": "fotomujer3.jpg",
     "comment": "",
     "id_city": "621ea1e2295a790c2eeb4fdd"
 },
 {
     "userName": "Micaela Rodriguez",
-    "itineraryName": "Paseo en globos",
+    "itineraryName": "BEST MUSEUMS AND GALLERIES",
     "price": 2,
     "like": 0,
     "duration": 1,
     "hashtags": [
-        "#hashtag1",
-        "#hashtag2",
-        "#hashtag3"
+        "#mexico",
+        "#museums",
+        "#culture"
     ],
-    "image": "atenas.jpg",
+    "image": "fotomujer4.jpg",
     "comment": "",
     "id_city": "621ea1e2295a790c2eeb4fdd"
+},
+{
+    "userName": "Camila Rodriguez",
+    "itineraryName": "ATHENS CITY",
+    "price": 3,
+    "like": 0,
+    "duration": 3,
+    "hashtags": [
+        "#athens",
+        "#museums",
+        "#culture"
+    ],
+    "image": "fotomujer5.jpg",
+    "comment": "",
+    "id_city": "1ea1e2295a790c2eeb4fd9"
+},
+{
+    "userName": "Erika Rivero",
+    "itineraryName": "THE ISLAND OF SANTORINI",
+    "price": 3,
+    "like": 0,
+    "duration": 3,
+    "hashtags": [
+        "#athens",
+        "#island",
+        "#viewpoints"
+    ],
+    "image": "fotomujer6.jpg",
+    "comment": "",
+    "id_city": "1ea1e2295a790c2eeb4fd9"
 },
 ]);
 

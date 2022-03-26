@@ -4,12 +4,13 @@ const passport = require('../config/passport')
 
 const ciudadesController = require('../controllers/ciudadesControllers')
 const itinerariesController = require('../controllers/itinerariesControllers')
-/* const { verifyEmail } = require('../controllers/userControllers') */
 const usersControllers = require('../controllers/userControllers')
+const activitiesController = require('../controllers/activitiesControllers')
 
 const {obtenerCiudades, obtenerUnaCiudad, cargarCiudad, borrarCiudad, modificarCiudad} = ciudadesController
 const {obtenerItinerarios, obtenerItinerariosPorId, cargarItinerario, modificarItinerario, borrarItinerario} = itinerariesController
 const {signUpUser, signInUser, signOutUser, verifyEmail, verificarToken} = usersControllers
+const {obtenerActivities, obtenerActivitiesDeItinerario,cargarActividad,modificarActividad,borrarActividad} = activitiesController
 
 Router.route('/allcities')
 .get(obtenerCiudades)
@@ -43,5 +44,16 @@ Router.route('/verify/:uniqueString') // RECIBE EL LINK DE USUARIO
 
 Router.route('/auth/signInToken')
 .get(passport.authenticate('jwt',{ session:false }), verificarToken)
+
+Router.route('/activities')
+.get(obtenerActivities)
+.post(cargarActividad)
+
+Router.route('/activities/:id_itinerary')
+.get(obtenerActivitiesDeItinerario)
+
+Router.route('/activities/:id')
+.delete(borrarActividad)
+.put(modificarActividad)
 
 module.exports = Router

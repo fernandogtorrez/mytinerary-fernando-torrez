@@ -22,7 +22,7 @@ const Details = (props) => {
 
   return (
     <div>
-      <Herodetails/>
+      {/* <Herodetails/> */}
       {itinerarios.length > 0 ? itinerarios.map(item => <Carddetails data={item}/>)
       : <h1 className='noResult'>Please excuse us, no itineraries were found for this city.</h1>
     }
