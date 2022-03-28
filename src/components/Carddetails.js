@@ -2,59 +2,54 @@ import React, { useEffect, useState } from 'react'
 import '../styles/carddetails.css'
 import { connect } from 'react-redux'
 import itineraryActions from '../redux/actions/itineraryActions'
-import {ChevronDownOutline} from 'react-ionicons'
+import activitiesActions from '../redux/actions/activitiesActions'
+import { Accordion } from 'react-bootstrap'
+import {Link as LinkRouter} from 'react-router-dom'
+import Activities from './Activities'
+import Likes from './Likes'
+import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
 
 
-const Carddetails = ({data}) => {
+const Carddetails = (props) => {
 
-  let card;
-
-  useEffect(()=>{
-      card = document.querySelector(".carddetails");
-    },[])
-  
-
-  function dropdown (){
-      card.classList.toggle("active")
-  }
+  const reload = props.reload
+  const setReload = props.setReload
+  console.log(props.data);
 
   return (
     <div className="body">
       <div className="carddetails">
           <div className="content">
             <div>
-              <h2>{data.itineraryName}</h2>
+                <p>{props.data.price}</p>
             </div>
              
               <div className="hashAndDesc">
-                <p className="desc">{data.description}</p>
-                <p className="hash">{data.hashtags}</p>
+                <p className="hash">{props.data.hashtags}</p>
               </div>
-              {/* <div className="icons">
-                  <h3>{data.likes}<img src={Like} className="iconLike"/></h3>
-                  <p><img src={Cash} className="iconLike"/>
-                  <img src={Cash} className="iconLike"/></p>
-
-              </div> */}
+              {/* <span className="material-icons-outlined">Like</span>
+              <span className="material-icons-outlined">Price</span> */}
+              <Likes like={props.data.like} id={props.data._id} reload={reload} setReload={setReload}/>
               <div className='perfil-foto'>
                 <div className="profile">
-                  <img src={process.env.PUBLIC_URL+`/images/${data.image}`} className="Profile Img"/>
+                  <img src={process.env.PUBLIC_URL+`/images/${props.data.image}`} className="Profile Img"/>
                 </div>
                 <div className="tittles">
-                    <h2>{data.userName}</h2>
+                    <h2>{props.data.userName}</h2>
                 </div>
             </div>
           </div>
-          <div className="nav-under">
-              <h1>Under Construction</h1>
-          </div>
-          <div className="toggle">
-            <p>View More</p>
-            <ChevronDownOutline onClick={dropdown} className='icon'/>
-          </div>
+          <Accordion>
+            <Accordion.Item eventKey="0">
+              <Accordion.Header><h2>{props.data.itineraryName}</h2></Accordion.Header>
+              <Accordion.Body>
+                <Activities iditinerary= {props.data._id}/>
+              </Accordion.Body>
+            </Accordion.Item>
+          </Accordion>
       </div>
     </div>
   );
 }
 
-export default Carddetails;
+export default (Carddetails);

@@ -8,7 +8,7 @@ const usersControllers = require('../controllers/userControllers')
 const activitiesController = require('../controllers/activitiesControllers')
 
 const {obtenerCiudades, obtenerUnaCiudad, cargarCiudad, borrarCiudad, modificarCiudad} = ciudadesController
-const {obtenerItinerarios, obtenerItinerariosPorId, cargarItinerario, modificarItinerario, borrarItinerario} = itinerariesController
+const {obtenerItinerarios, obtenerItinerariosPorId, cargarItinerario, modificarItinerario, borrarItinerario,likeDislike} = itinerariesController
 const {signUpUser, signInUser, signOutUser, verifyEmail, verificarToken} = usersControllers
 const {obtenerActivities, obtenerActivitiesDeItinerario,cargarActividad,modificarActividad,borrarActividad} = activitiesController
 
@@ -44,6 +44,9 @@ Router.route('/verify/:uniqueString') // RECIBE EL LINK DE USUARIO
 
 Router.route('/auth/signInToken')
 .get(passport.authenticate('jwt',{ session:false }), verificarToken)
+
+Router.route('/likeDislike/:id')
+.put(passport.authenticate('jwt',{ session:false }), likeDislike)
 
 Router.route('/activities')
 .get(obtenerActivities)

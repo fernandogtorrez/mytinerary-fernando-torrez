@@ -16,18 +16,19 @@ const Register = (props) => {
 
     const handleSubmit = (event) => {
         event.preventDefault()
-        console.log(event.target)
+        console.log(event)
         const userData = {
-            firstName: event.target[0].value,
-            lastName: event.target[1].value,
-            email: event.target[2].value,
-            password: event.target[3].value,
-            userPhoto: event.target[4].value,
-            country: event.target[5].value,
+            firstName: event.target[2].value,
+            lastName: event.target[3].value,
+            email: event.target[4].value,
+            password: event.target[5].value,
+            userPhoto: event.target[6].value,
+            country: event.target[7].value,
             from: 'form-Signup'
         }
         props.signUpUser(userData)
         console.log(userData)
+        console.log(event.target)
     }
     
 

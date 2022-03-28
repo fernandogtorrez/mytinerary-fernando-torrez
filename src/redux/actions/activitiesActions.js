@@ -7,10 +7,16 @@ const activitiesActions =  {
           dispatch({type:'fetchActivities', payload: res.data.response})
       }
   },
-  fetchActivitiesItineraryId: () => {
-      return async(dispatch, getState) => {
-          const res = await axios.get(`http://localhost:4000/api/V1/activities/${id_itinerary}`)
-          dispatch({type:'fetchActivitiesItineraryId', payload: res.data.response})
+  fetchActivitiesItineraryId: (iditinerary) => {
+      console.log(iditinerary);
+      return async() => {
+          try{
+            const res = await axios.get(`http://localhost:4000/api/V1/activities/${iditinerary}`)
+            console.log(res);
+            return {success:true, response: res.data.response}
+          }catch(err){
+            console.log(err);
+          }
       }
   }
 }

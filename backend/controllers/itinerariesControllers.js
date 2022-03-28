@@ -69,19 +69,19 @@ const itinerariesController = {
 
     likeDislike: async (req, res) => {
         const id = req.params.id
-        const user = req.body.user
-        let Itinerarios
+        const user = req.user.id
+        let itinerario
 
         try{
-            Itinerarios = await Itinerarios.findOne({_id:id})
+            itinerario = await Itinerarios.findOne({_id:id})
 
-            if(Itinerarios.like.includes(user)){
+            if(itinerario.like.includes(user)){
                 Itinerarios.findOneAndUpdate({_id:id},{$pull:{like:user}},{new:true})
-                .then(response => res.json({success:true, res: res.like}))
+                .then((response) => res.json({success:true, response: response.like}))
                 .catch(error => console.log(error))
             }else{
                 Itinerarios.findOneAndUpdate({_id:id},{$push:{like:user}},{new:true})
-                .then(response => res.json({success:true, res: res.like}))
+                .then(response => res.json({success:true, response: response.like}))
                 .catch(error => console.log(error))
             }
         }catch(err){
@@ -91,6 +91,53 @@ const itinerariesController = {
                 response: erorr,
             })
         }
-    }
+    },
+
+    addComment: async (req, res) => {
+        const {itinerario,comment} = req.body.comment
+        const user = req.user._id
+        try {
+            const nuevoComment = await Itinerarios.findOneAndUpdate({_id:itinerario}, {$push: {comments: {comment: comment, userID: user}}}, {new: true}).populate("autor", {fullName:1}).populate("comments.userID", {fullName:1})
+            res.json({ success: true, response:{nuevoComment}, message:"gracias por dejarnos tu comentario" })
+
+        }
+        catch (error) {
+            console.log(error)
+            res.json({ success: false, message: "Algo a salido mal intentalo en unos minutos" })
+        }
+
+    },
+
+    modifiComment: async (req, res) => {
+        const {commentID,comment} = req.body.comment
+        const user = req.user._id
+        try {
+            const newComment = await Places.findOneAndUpdate({"comments._id":commentID}, {$set: {"comments.$.comment": comment}}, {new: true})
+            console.log(newComment)
+            res.json({ success: true, response:{newComment}, message:"tu comentario a sido modificado" })
+
+        }
+        catch (error) {
+            console.log(error)
+            res.json({ success: true, message: "Algo a salido mal intentalo en unos minutos" })
+        }
+
+    },
+
+    deleteComment: async (req, res) => {
+        const id = req.params.id
+        const user = req.user._id
+        try {
+            const deleteComment = await Places.findOneAndUpdate({"comments._id":id}, {$pull: {comments: {_id: id}}}, {new: true})
+          console.log(deleteComment)
+            res.json({ success: true, response:{deleteComment}, message: "has eliminado el comentario" })
+
+        }
+        catch (error) {
+            console.log(error)
+            res.json({ success: false, message: "Algo a salido mal intentalo en unos minutos" })
+        }
+
+    },
 }
 module.exports = itinerariesController

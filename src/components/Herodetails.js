@@ -11,14 +11,14 @@ const Herodetails = (props) => {
   const [reload, setReload] = useState(false)
   const {id} = useParams()
 
-  useEffect(()=>{
+  /* useEffect(()=>{
     setReload(!reload)
   },[])
 
   useEffect(()=>{
     props.fetchOneCity(id)
   },[reload])
-  
+   */
   return (
     <div className='herodetails-container' style={{backgroundImage:`url('${process.env.PUBLIC_URL}/images/${props.data?.image}')` }}>
         <div className='titledetails'>

@@ -21,6 +21,7 @@ const activitiesController = {
 
     obtenerActivitiesDeItinerario : async(req, res) => {
         try{
+            console.log(req.params)
             const actividadesDeItinerario = await Activities.find({id_itinerary:req.params.id_itinerary})
             res.json({
                 response: actividadesDeItinerario,

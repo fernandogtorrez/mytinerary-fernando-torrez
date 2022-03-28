@@ -9,24 +9,14 @@
     justify-content: center;
     align-items: center;
     min-height: auto;
-    padding: 5rem 0;
+    margin-top: 8rem;
 }
 
 .carddetails{
-    position: relative;
     width: 65rem;
-    height: 400px;
-    height: 220px;
-    overflow: hidden;
     background-color: rgb(206, 206, 206);
-    border-radius: 10px;
-    padding: 20px;
-    transition: height 0.5s ease-in-out;
+    border: 1px solid black;
     font-family: Helvetica, sans-serif;
-}
-
-.carddetails.active{
-    height: 600px;
 }
 
 .carddetails .content{
@@ -36,6 +26,7 @@
     align-items: center;
     flex-wrap: wrap;
     justify-content: space-between;
+    padding: 20px;
 }
 
 .perfil-foto{
@@ -96,60 +87,52 @@
     width: 40px;
     height: 40px;
 }
-
-.nav-under{
-    position: relative;
-    top: 30px;
-    border-top: 1px solid rgba(0, 0, 0, 0.212);
-    padding: 10px 0;
-    display: flex;
-    flex-direction: column;
+.activitieshome{
+    text-align: center;
 }
-
-.nav-under li{    
-    margin: 15px 0;
-    display: flex;
-    align-items: center;
-    color: #555;
-    font-size: 1.1rem;
-    transition: color 0.25s;
-}
-
-.nav-under li:hover{
-    color: #36b3ff;
-}
-
-.toggle{
-    position: absolute;
-    bottom: 20px;
-    /* width: 20px; */
-    height: 20px;
-    left: 400px;
-
+.activitieshome1{
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
 }
 
-.icon{
-    color: white !important;
+.activitieshome2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: row;
 }
 
-.toggle .icon{
-    font-size: 1.5rem;
-    transition: transform ease-in-out 0.5s;
+.activities1{
+    position: absolute;
 }
 
-.carddetails.active .toggle .icon{
-    transform: rotate(-180deg);
+.activities1 h1{
+    color: rgba(0, 0, 0, 0.767);
+    background-color: rgba(255, 255, 255, 0.356);
 }
 
+.activities2{
+    position: relative;
+}
+
+.activities2 img{
+    width: 300px;
+    height: 200px;
+    object-fit: cover;
+
+}
+
+.likeDislike{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
 
 @media (max-width: 1144px){
-    .carddetails{
-        height: 250px;
-    }
-
     .carddetails .content{
         margin: 0;
     }
@@ -171,23 +154,10 @@
     .carddetails .content .icons{
         margin: 7px 0 0 50px;
     }
-    
-    .carddetails.active{
-        height: 800px;
-    }
-
-    .nav-under{
-        top: 90px;
-        padding: 10px 0;
-    }
 }
 
 
 @media (max-width: 750px){
-    .carddetails{
-        height: 300px;
-    }
-
     .carddetails .content .hashAndDesc{
         margin: 20px 0;
     }
@@ -195,10 +165,6 @@
 
 
 @media (max-width: 644px){
-    .carddetails{
-        height: 370px;
-    }
-
     .carddetails .content .hashAndDesc{
         margin: 20px 0;
     }
@@ -206,19 +172,10 @@
     .carddetails .content .icons{
         margin: 7px 30px;
     }
-
-    .nav-under{
-        top: 87px;
-        padding: 10px 0;
-    }
 }
 
 
 @media (max-width: 494px){
-    .carddetails{
-        height: 440px;
-    }
-
     .carddetails .content .tittles{
         margin: 10px 30px;
     }
@@ -234,10 +191,5 @@
     .tittles{
         margin: 0;
         text-align: center;
-    }
-
-    .nav-under{
-        top: 85px;
-        padding: 10px 0;
     }
 }

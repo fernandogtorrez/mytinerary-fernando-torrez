@@ -13,8 +13,8 @@ const Login = (props) => {
   const handleSubmit = (event) => {
     event.preventDefault()
     const logedUser = {
-      email: event.target[0].value,
-      password: event.target[1].value,
+      email: event.target[2].value,
+      password: event.target[3].value,
       from: 'form-Signin'
     }
     props.signInUser(logedUser)

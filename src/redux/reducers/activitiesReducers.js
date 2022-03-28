@@ -1,6 +1,6 @@
 const initialState = {
     activities: [],
-    activitiesItinerary: [],
+    activitisItinerary: [],
 }
 
 const activitiesReducer = (state= initialState, action) => {
