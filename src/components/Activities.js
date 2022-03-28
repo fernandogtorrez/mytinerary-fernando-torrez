@@ -22,7 +22,7 @@ const Activities = (props) => {
                 <div className='activities1'>
                     <h1>{activity.name}</h1>
                 </div>
-            </div>
+            </div>  
             )}
         </div>
         

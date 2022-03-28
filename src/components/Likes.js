@@ -17,8 +17,16 @@ const Likes = (props) => {
   return (
     <>
         <div className='likeDislike'>
-            <p>{props.like.length}</p>
-            {props.like.length?<FavoriteIcon onClick={likeOrDislike}/>:<FavoriteBorderIcon onClick={likeOrDislike}/>}
+            {props.user ?
+                (<button onClick={likeOrDislike}>{props?.like.includes(props.user.id) ?
+                    <span style={{ color: "red", fontSize:30 }}><FavoriteIcon/></span> :
+                    <span style={{  fontSize:30 }}><FavoriteBorderIcon/></span>}</button>)
+
+                : (<span style={{  fontSize:30 }}><FavoriteBorderIcon/></span>)}
+
+            <h3 style={{  color:"black ",fontSize:30 }}>{props?.like.length}</h3>
+            {/* <p>{props.like.length}</p>
+            {props.like.length?<FavoriteIcon onClick={likeOrDislike}/>:<FavoriteBorderIcon onClick={likeOrDislike}/>} */}
         </div>
     </>
   )
@@ -27,5 +35,9 @@ const Likes = (props) => {
 const mapDispatchToProps = {
     likeDislike: itineraryAction.likeDislike,
 }
-
-export default connect(null, mapDispatchToProps) (Likes)
+const mapStateToProps= (state) =>{
+    return{
+        user: state.userReducers.user
+    }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(Likes);
