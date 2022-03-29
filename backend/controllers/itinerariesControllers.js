@@ -94,12 +94,13 @@ const itinerariesController = {
     },
 
     addComment: async (req, res) => {
-        const {itinerario,comment} = req.body.comment
+        console.log(req.body);
+        const {comment, itinerario} = req.body.comment
         const user = req.user._id
         try {
-            const nuevoComment = await Itinerarios.findOneAndUpdate({_id:itinerario}, {$push: {comments: {comment: comment, userID: user}}}, {new: true}).populate("autor", {fullName:1}).populate("comments.userID", {fullName:1})
+            const nuevoComment = await Itinerarios.findOneAndUpdate({_id:itinerario}, {$push: {comments: {comment: comment, userID: user}}}, {new: true}).populate('comments.userID', {firstName:1})
             res.json({ success: true, response:{nuevoComment}, message:"gracias por dejarnos tu comentario" })
-
+            console.log(nuevoComment);
         }
         catch (error) {
             console.log(error)
@@ -112,7 +113,7 @@ const itinerariesController = {
         const {commentID,comment} = req.body.comment
         const user = req.user._id
         try {
-            const newComment = await Places.findOneAndUpdate({"comments._id":commentID}, {$set: {"comments.$.comment": comment}}, {new: true})
+            const newComment = await Itinerarios.findOneAndUpdate({"comments._id":commentID}, {$set: {"comments.$.comment": comment}}, {new: true})
             console.log(newComment)
             res.json({ success: true, response:{newComment}, message:"tu comentario a sido modificado" })
 
@@ -128,7 +129,7 @@ const itinerariesController = {
         const id = req.params.id
         const user = req.user._id
         try {
-            const deleteComment = await Places.findOneAndUpdate({"comments._id":id}, {$pull: {comments: {_id: id}}}, {new: true})
+            const deleteComment = await Itinerarios.findOneAndUpdate({"comments._id":id}, {$pull: {comments: {_id: id}}}, {new: true})
           console.log(deleteComment)
             res.json({ success: true, response:{deleteComment}, message: "has eliminado el comentario" })
 

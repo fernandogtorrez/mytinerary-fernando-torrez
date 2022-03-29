@@ -8,6 +8,7 @@ import {Link as LinkRouter} from 'react-router-dom'
 import Activities from './Activities'
 import Likes from './Likes'
 import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
+import Comments from './Comments'
 
 
 const Carddetails = (props) => {
@@ -44,6 +45,7 @@ const Carddetails = (props) => {
               <Accordion.Header><h2>{props.data.itineraryName}</h2></Accordion.Header>
               <Accordion.Body>
                 <Activities iditinerary= {props.data._id}/>
+                <Comments comments = {props.data.comments} id={props.data._id} reload={reload} setReload={setReload}/>
               </Accordion.Body>
             </Accordion.Item>
           </Accordion>

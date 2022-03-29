@@ -7,7 +7,6 @@ const userActions = {
         return async (dispatch, getState) => {
             
             const res = await axios.post('http://localhost:4000/api/V1/auth/signUp',{userData})
-            console.log(res)
             dispatch({
                 type: 'message',
                 payload: {
@@ -15,7 +14,6 @@ const userActions = {
                     message: res.data.message,
                     success: res.data.success
                 }})
-                console.log(userData);
         }
     },
         signInUser: (logedUser) => {
@@ -23,7 +21,6 @@ const userActions = {
             return async(dispatch, getState) => {
                 
                 const user = await axios.post('http://localhost:4000/api/V1/auth/signIn', {logedUser})
-                console.log(user.data);
                 if(user.data.success){
                     localStorage.setItem('token', user.data.response.token)
                     dispatch({type: 'user', payload: user.data.response.userData})
@@ -49,13 +46,11 @@ const userActions = {
     VerificarToken: (token) => {
 
         return async (dispatch, getState) => {
-            console.log(token)
             const user = await axios.get('http://localhost:4000/api/V1/auth/signInToken', {
                 headers: {
                     'Authorization': 'Bearer ' + token
                 }
             })
-            console.log(user)
             
             if (user.data.success) {
                 dispatch({ type: 'user', payload: user.data.response });

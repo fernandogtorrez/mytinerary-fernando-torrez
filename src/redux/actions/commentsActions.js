@@ -3,7 +3,7 @@ import axios from 'axios';
 const commentsActions = {
 
     addComment: (comment) => {
-     
+        console.log(comment);
         const token = localStorage.getItem('token')
         return async (dispatch, getState) => {
             const res = await axios.post('http://localhost:4000/api/V1/comment', { comment }, {
@@ -11,6 +11,7 @@ const commentsActions = {
                     'Authorization': `Bearer ${token}`
                 }
             })
+            console.log(res);
             dispatch({
                 type: 'message',
                 payload: {

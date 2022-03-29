@@ -9,7 +9,7 @@ const itinerariosSchema = new mongoose.Schema({
     hashtags:{type:Array, required:true},
     image:{type:String, required:true},
     comments:[{
-        comment:{type:String, required:true},
+        comment:{type:String},
         userID: {type:mongoose.Types.ObjectId, ref:'users'},
     }],
     id_city: {type: mongoose.Types.ObjectId, ref: 'cities'}
