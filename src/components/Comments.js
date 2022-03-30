@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import { connect } from 'react-redux'
 import commentsActions from '../redux/actions/commentsActions'
+import Swal from 'sweetalert2'
 
 
 const Comments = (props) => {
@@ -10,7 +11,6 @@ const Comments = (props) => {
     const [inputText, setInputText] = useState()
     const [modifi, setModifi] = useState()
 
-    console.log(props);
   async function cargarComentario(event) {
       
 
@@ -25,6 +25,23 @@ const Comments = (props) => {
   
 
   async function modificarComentario(event) {
+    Swal.fire({
+        title: 'Modificar',
+        text: "Desea modificar tu comentario?",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          Swal.fire(
+            'Modificado',
+            'Se modificó tu comentario',
+            'success'
+          )
+        }
+      })
     const commentData = {
       commentID: event.target.id,
       comment: modifi,
@@ -34,8 +51,30 @@ const Comments = (props) => {
 
   }
   async function eliminarComentario(event) {
-    await props.deleteComment(event.target.id)
-    setReload(!reload)
+    Swal.fire({
+        title: 'Eliminar',
+        text: "Estas seguro de eliminar tu comentario?",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Si, eliminar'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          Swal.fire(
+            'Eliminado!',
+            'Tu comentario ha sido eliminado.',
+            'success'
+          )
+        }
+        props.deleteComment(event.target.id).then(res => {
+            if(res.data.success){
+                setItinerario(res.data.deleteComment.comment)
+                setReload(!reload)
+            }
+        })
+      })
+    
   }
   return (
     <div>
@@ -44,7 +83,7 @@ const Comments = (props) => {
                     {comment.userID !== props.user?.id ?
                       <div class="card cardComments " key={comment._id}>
                         <div class="card-header">
-                          {comment.userID?.firstName}
+                          {comment.userID?.userName}
                         </div>
                         <div class="card-body">
                           <p class="card-text">{comment.comment}</p>
@@ -53,7 +92,7 @@ const Comments = (props) => {
 
                       <div class="card cardComments">
                         <div class="card-header">
-                          {comment.userID.firstName}
+                          {comment.userID.userName}
                         </div>
                         <div class="card-body ">
                           <textarea type="text" className="card-text textComments" onChange={(event) => setModifi(event.target.value)} defaultValue={comment.comment} />

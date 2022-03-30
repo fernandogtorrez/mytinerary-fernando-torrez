@@ -18,7 +18,6 @@ const Login = (props) => {
       from: 'form-Signin'
     }
     props.signInUser(logedUser)
-    console.log(logedUser)
   }
   return (
     <div className='contain-form2'>

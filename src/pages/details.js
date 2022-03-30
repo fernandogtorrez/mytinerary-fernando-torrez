@@ -12,10 +12,8 @@ const Details = (props) => {
   const [reload,setReload] = useState(false)
 
   const {id} = useParams()
-  console.log(id);
 
   const itinerarios = useSelector(store => store.itinerarioReducer.itinerarioCity)
-  console.log(itinerarios);
 
   useEffect(() =>{
     props.fetchItinerarioPorCity(id)

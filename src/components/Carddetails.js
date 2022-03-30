@@ -28,8 +28,6 @@ const Carddetails = (props) => {
               <div className="hashAndDesc">
                 <p className="hash">{props.data.hashtags}</p>
               </div>
-              {/* <span className="material-icons-outlined">Like</span>
-              <span className="material-icons-outlined">Price</span> */}
               <Likes like={props.data.like} id={props.data._id} reload={reload} setReload={setReload}/>
               <div className='perfil-foto'>
                 <div className="profile">

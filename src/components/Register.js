@@ -10,13 +10,9 @@ import GoogleSignUp from './GoogleSignUp';
 
 const Register = (props) => {
     const countries = ["United States", "England", "Peru", "Canada", "New Zealand", "Brasil", "China", "Argentina", "Chile", "Other" ]
-    console.log(props)
-
-
 
     const handleSubmit = (event) => {
         event.preventDefault()
-        console.log(event)
         const userData = {
             firstName: event.target[2].value,
             lastName: event.target[3].value,
@@ -27,8 +23,6 @@ const Register = (props) => {
             from: 'form-Signup'
         }
         props.signUpUser(userData)
-        console.log(userData)
-        console.log(event.target)
     }
     
 

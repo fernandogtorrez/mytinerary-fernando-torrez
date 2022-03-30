@@ -16,7 +16,6 @@ import { connect } from 'react-redux'
 import userActions from '../redux/actions/userActions';
 
 const Navbar = (props) => {
-  console.log(props);
 
   function SignOut() {
     props.SignOutUser(props.user.email)

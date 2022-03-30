@@ -7,12 +7,9 @@ import '../styles/styleSign.css'
 function FacebookSignUp(props) {
 
   const responseFacebook = async (res) => {
-    console.log(res)
-    console.log(res.name)
       const fullNameSeparado = res.name.split(" ")
       let nombre = fullNameSeparado[0]
       let apellido = fullNameSeparado[1]
-      console.log(fullNameSeparado)
 
     const userData = {
       firstName: nombre,

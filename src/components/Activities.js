@@ -8,7 +8,6 @@ const Activities = (props) => {
      useEffect(() =>{
          props.fetchActivitiesItineraryId(props.iditinerary)
          .then(res => setActivities(res.response))
-         console.log('Hola');
      },[])
   return (
     <div className='activitieshome'>

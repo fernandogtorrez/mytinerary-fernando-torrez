@@ -25,8 +25,6 @@ const Likes = (props) => {
                 : (<span style={{  fontSize:30 }}><FavoriteBorderIcon/></span>)}
 
             <h3 style={{  color:"black ",fontSize:30 }}>{props?.like.length}</h3>
-            {/* <p>{props.like.length}</p>
-            {props.like.length?<FavoriteIcon onClick={likeOrDislike}/>:<FavoriteBorderIcon onClick={likeOrDislike}/>} */}
         </div>
     </>
   )
