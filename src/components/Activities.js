@@ -9,6 +9,7 @@ const Activities = (props) => {
          props.fetchActivitiesItineraryId(props.iditinerary)
          .then(res => setActivities(res.response))
      },[])
+     
   return (
     <div className='activitieshome'>
         <h2>Activities</h2>
@@ -24,7 +25,6 @@ const Activities = (props) => {
             </div>  
             )}
         </div>
-        
     </div>
   )
 }

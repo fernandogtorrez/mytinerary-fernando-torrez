@@ -1,13 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import '../styles/carddetails.css'
 import { connect } from 'react-redux'
-import itineraryActions from '../redux/actions/itineraryActions'
-import activitiesActions from '../redux/actions/activitiesActions'
 import { Accordion } from 'react-bootstrap'
-import {Link as LinkRouter} from 'react-router-dom'
 import Activities from './Activities'
 import Likes from './Likes'
-import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
 import Comments from './Comments'
 
 
@@ -15,7 +11,6 @@ const Carddetails = (props) => {
 
   const reload = props.reload
   const setReload = props.setReload
-  console.log(props.data);
 
   return (
     <div className="body">

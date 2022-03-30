@@ -6,7 +6,6 @@ const itineraryAction = {
         return async(dispatch,getState)=>{
             const res = await axios.get('http://localhost:4000/api/V1/itineraries')
             dispatch({type: 'fetchItinerario' ,payload:res.data.response})
-            console.log(res.data);
         }  
     },
 
@@ -15,7 +14,6 @@ const itineraryAction = {
             try{
                 const res = await axios.get(`http://localhost:4000/api/V1/itineraries/${id}`)
                 dispatch({type: 'fetchItinerarioPorCity', payload: res.data.response})
-                console.log(res.data);
             }catch(err){
                 console.log(err);
             }
@@ -39,7 +37,6 @@ const itineraryAction = {
                         Authorization: 'Bearer '+token
                     }
                 })
-                console.log(response);
                 return response
             }catch(err) {
                 console.log(err);

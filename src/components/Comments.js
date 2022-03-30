@@ -13,7 +13,6 @@ const Comments = (props) => {
 
   async function cargarComentario(event) {
       
-
     const commentData = {
       itinerario: event.target.id,
       comment: inputText,
@@ -25,23 +24,6 @@ const Comments = (props) => {
   
 
   async function modificarComentario(event) {
-    Swal.fire({
-        title: 'Modificar',
-        text: "Desea modificar tu comentario?",
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes'
-      }).then((result) => {
-        if (result.isConfirmed) {
-          Swal.fire(
-            'Modificado',
-            'Se modificó tu comentario',
-            'success'
-          )
-        }
-      })
     const commentData = {
       commentID: event.target.id,
       comment: modifi,
@@ -51,29 +33,8 @@ const Comments = (props) => {
 
   }
   async function eliminarComentario(event) {
-    Swal.fire({
-        title: 'Eliminar',
-        text: "Estas seguro de eliminar tu comentario?",
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Si, eliminar'
-      }).then((result) => {
-        if (result.isConfirmed) {
-          Swal.fire(
-            'Eliminado!',
-            'Tu comentario ha sido eliminado.',
-            'success'
-          )
-        }
-        props.deleteComment(event.target.id).then(res => {
-            if(res.data.success){
-                setItinerario(res.data.deleteComment.comment)
-                setReload(!reload)
-            }
-        })
-      })
+    await props.deleteComment(event.target.id)
+    setReload(!reload)
     
   }
   return (

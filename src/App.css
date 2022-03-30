@@ -30,3 +30,22 @@
   border-radius: 50%;
   object-fit: cover;
 }
+
+.card-header{
+  display: flex;
+  justify-content: center;
+}
+
+.card-body{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.textComments{
+  display: flex;
+  justify-content: center;
+  resize: none;
+  width: 80%;
+  align-items: center;
+}
