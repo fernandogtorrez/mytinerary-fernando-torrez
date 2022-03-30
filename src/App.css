@@ -11,3 +11,41 @@
 .linkresp{
     text-decoration: none;
 }
+
+/* ::-webkit-scrollbar{
+  display: block;
+} */
+
+/* html,body{
+  overflow-x: hidden;
+} */
+
+.signout{
+  padding-top: 60px;
+}
+
+.userPhoto{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.card-header{
+  display: flex;
+  justify-content: center;
+}
+
+.card-body{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.textComments{
+  display: flex;
+  justify-content: center;
+  resize: none;
+  width: 80%;
+  align-items: center;
+}

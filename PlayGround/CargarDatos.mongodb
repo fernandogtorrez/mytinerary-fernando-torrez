@@ -1,0 +1,105 @@
+// MongoDB Playground
+//https://docs.mongodb.com/manual/crud/
+const database = 'MyTinerary';
+
+
+use(database);
+
+// The drop() command destroys all data from a collection.
+db.itineraries.drop();
+// Inserta los documentos que nosotros le indiquemos.
+db.itineraries.insertMany([
+  
+  
+    {
+    "userName": "Julieta Casco",
+    "itineraryName": "CN Tower",
+    "price": 3,
+    "like": 0,
+    "duration": 3,
+    "hashtags": [
+        "#hashtag1",
+        "#hashtag2",
+        "#hashtag3"
+    ],
+    "image": "fotomujer1.jpg",
+    "comment": "",
+    "id_city": "621ea1e2295a790c2eeb4fe2"
+},
+{
+    "userName": "Edith Arce",
+    "itineraryName": "CN Tower",
+    "price": 2,
+    "like": 0,
+    "duration": 4,
+    "hashtags": [
+        "#hashtag1",
+        "#hashtag2",
+        "#hashtag3"
+    ],
+    "image": "fotomujer2.jpg",
+    "comment": "",
+    "id_city": "621ea1e2295a790c2eeb4fe2"
+},
+{
+    "userName": "Tami Balderrama",
+    "itineraryName": "DISCOVER TEOTIHUACAN",
+    "price": 5,
+    "like": 0,
+    "duration": 5,
+    "hashtags": [
+        "#mexico",
+        "#aztec",
+        "#culture"
+    ],
+    "image": "fotomujer3.jpg",
+    "comment": "",
+    "id_city": "621ea1e2295a790c2eeb4fdd"
+},
+{
+    "userName": "Micaela Rodriguez",
+    "itineraryName": "BEST MUSEUMS AND GALLERIES",
+    "price": 2,
+    "like": 0,
+    "duration": 1,
+    "hashtags": [
+        "#mexico",
+        "#museums",
+        "#culture"
+    ],
+    "image": "fotomujer4.jpg",
+    "comment": "",
+    "id_city": "621ea1e2295a790c2eeb4fdd"
+},
+{
+    "userName": "Camila Rodriguez",
+    "itineraryName": "ATHENS CITY",
+    "price": 3,
+    "like": 0,
+    "duration": 3,
+    "hashtags": [
+        "#athens",
+        "#museums",
+        "#culture"
+    ],
+    "image": "fotomujer5.jpg",
+    "comment": "",
+    "id_city": "1ea1e2295a790c2eeb4fd9"
+},
+{
+    "userName": "Erika Rivero",
+    "itineraryName": "THE ISLAND OF SANTORINI",
+    "price": 3,
+    "like": 0,
+    "duration": 3,
+    "hashtags": [
+        "#athens",
+        "#island",
+        "#viewpoints"
+    ],
+    "image": "fotomujer6.jpg",
+    "comment": "",
+    "id_city": "1ea1e2295a790c2eeb4fd9"
+},
+]);
+

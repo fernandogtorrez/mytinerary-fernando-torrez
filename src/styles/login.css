@@ -1,0 +1,132 @@
+*{
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.contain-form{
+    background-image: url('/public/images/dubai.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contain-form2{
+    display: flex;
+    justify-content: center;    
+    margin-top: 5rem;
+    /* padding-top: 5rem; */
+}
+
+.formulario{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding: 160px 0;
+}
+
+.formulario span{
+    display: flex;
+    justify-content: center;
+}
+
+.formulario h1{
+    color: rgb(255, 255, 255);
+    font-size: 4rem;
+}
+
+.font-icon{
+    color: #1976D2;
+    min-width: 40px;
+    text-align: center;
+}
+
+.input-contenedor{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+}
+
+.input-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem;
+}
+
+.input-center{
+    background-color: rgb(255, 255, 255);
+    padding: 6px 45px 6px 0;
+    border-radius: 4px;
+}
+
+.input-center input{
+    text-decoration: none;
+    border: none;
+    outline: none;
+}
+
+.btn-signin{
+    border: none;
+    width: 60%;
+    height: 8vh;
+    border-radius: 4px;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.btn-signin:hover{
+    background-color: #1976D2;
+    color: white;
+}
+
+.btn-signup{
+    border: none;
+    width: 37%;
+    height: 8vh;
+    border-radius: 4px;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+
+
+.btn-signup:hover{
+    background-color: #1976D2;
+    color: white;
+}
+
+.input-center select{
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+}
+
+.contenedor-form p{
+    align-items: center;
+    text-align: center;
+    color: white;
+    font-size: 2rem;
+}
+
+.divide span{
+    font-size: 25px;
+    color: white;
+}
+
+.formulario .buttonsocial{
+    display: flex;
+    justify-content: center;
+}
+
+.cuentas{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 50%;
+    align-items: center;
+}

@@ -12,11 +12,16 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import {Link as LinkRouter} from 'react-router-dom'
+import { connect } from 'react-redux'
+import userActions from '../redux/actions/userActions';
 
-const pages = ['Home', 'Cities'];
-const settings = ['Log in', 'Sign up'];
+const Navbar = (props) => {
 
-const Navbar = () => {
+  function SignOut() {
+    props.SignOutUser(props.user.email)
+  }
+
+
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -36,7 +41,9 @@ const Navbar = () => {
   };
 
   return (
-    <AppBar position="fixed">
+
+    <>
+    <AppBar position="fixed" className='navbar'>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Typography
@@ -74,7 +81,7 @@ const Navbar = () => {
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
               sx={{
-                display: { xs: 'block', md: 'none' },
+                display: { xs: 'block', md: 'none'},
               }}
               > 
                 <MenuItem>
@@ -93,7 +100,7 @@ const Navbar = () => {
           >
             MyTinerary
           </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex', justifyContent: 'center'}}}>
             <MenuItem>
               <LinkRouter to='home' className='link'>
                 <Button color='inherit'>Home</Button>
@@ -105,15 +112,18 @@ const Navbar = () => {
               </LinkRouter>
             </MenuItem>
           </Box>
-
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+              {!props.user ?
+                    <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                    :
+                    <img className='userPhoto' src={props.user.userPhoto}/>
+                    }
               </IconButton>
             </Tooltip>
             <Menu
-              sx={{ mt: '45px' }}
+              sx={{ mt: '45px'}}
               id="menu-appbar"
               anchorEl={anchorElUser}
               anchorOrigin={{
@@ -128,16 +138,35 @@ const Navbar = () => {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
-                </MenuItem>
-              ))}
+                {props.user ?
+                    <LinkRouter onClick={SignOut} to='Signout' className='linkresp'>SignOut</LinkRouter>
+                    :
+                    <div>
+                      <MenuItem>
+                        <LinkRouter to='Signin' className='linkresp'>Sign In</LinkRouter>
+                      </MenuItem>
+                      <MenuItem>
+                        <LinkRouter to='Signup' className='linkresp'>Sign Up</LinkRouter>
+                      </MenuItem>
+                    </div>
+                    }
             </Menu>
           </Box>
         </Toolbar>
       </Container>
     </AppBar>
+    </>
   );
 };
-export default Navbar;
+
+const mapStateToProps = (state) => {
+  return {
+    user: state.userReducers.user,
+  }
+}
+
+const mapDispatchToProps = {
+  SignOutUser: userActions.SignOutUser,
+}
+
+export default connect(mapStateToProps, mapDispatchToProps) (Navbar);

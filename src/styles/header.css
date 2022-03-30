@@ -8,9 +8,10 @@ body{
     height: 100vh;
 }
 .hero-container{
-    background: url('/public/imagenes/hero.jpg');
+    background: url('/public/images/hero.jpg');
     background-position: center;
     background-size: cover;
+    background-repeat: no-repeat;
     background-attachment: fixed;
     width: 100%;
     height: 100vh;
