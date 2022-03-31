@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import '../styles/carddetails.css'
-import { connect } from 'react-redux'
 import { Accordion } from 'react-bootstrap'
 import Activities from './Activities'
 import Likes from './Likes'
 import Comments from './Comments'
+import QueryBuilderIcon from '@mui/icons-material/QueryBuilder';
 
 
 const Carddetails = (props) => {
@@ -17,7 +17,10 @@ const Carddetails = (props) => {
       <div className="carddetails">
           <div className="content">
             <div>
-                <p>{props.data.price}</p>
+                <p>Price: {props.data.price}</p>
+            </div>
+            <div>
+                <p>Duration: {props.data.duration}</p>
             </div>
              
               <div className="hashAndDesc">
@@ -38,7 +41,7 @@ const Carddetails = (props) => {
               <Accordion.Header><h2>{props.data.itineraryName}</h2></Accordion.Header>
               <Accordion.Body>
                 <Activities iditinerary= {props.data._id}/>
-                <Comments comments = {props.data.comments} id={props.data._id} reload={reload} setReload={setReload}/>
+                <Comments itinerarios = {props.data} id={props.data._id} reload={reload} setReload={setReload}/>
               </Accordion.Body>
             </Accordion.Item>
           </Accordion>

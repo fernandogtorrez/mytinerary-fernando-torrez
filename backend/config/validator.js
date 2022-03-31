@@ -4,24 +4,31 @@ const validator = (req, res, next) => {
     const schema = joi.object({
         firstName: joi.string().max(20).min(3).trim().pattern(new RegExp('[a-zA-Z]')).required().messages({
             'string.min': 'The NAME must contain more than 3 characters',
-            'string.max':'The name must contain a maximum of 20 characters'
+            'string.max':'The name must contain a maximum of 20 characters',
+            'string.empty':'Please enter your name'
         }),
 
         lastName: joi.string().max(20).min(3).trim().pattern(new RegExp('[a-zA-Z]')).required().messages({
             'string.min': 'The LAST NAME must contain more than 3 characters',
-            'string.max':'The last name must contain a maximum of 20 characters'
+            'string.max':'The last name must contain a maximum of 20 characters',
+            'string.empty':'Please enter your last name'
         }),
 
         email: joi.string().email({ minDomainSegments: 2}).required().messages({
-            'string.email':'Wrong email format'
+            'string.email':'Wrong email format',
+            'string.empty':'Please enter your email'
+            
         }),
         
         password: joi.string().pattern(new RegExp('[a-zA-Z0-9]')).required().trim().min(8).max(30).messages({
             'string.min':'The password must contain at least 8 characters and contain uppercase, lowercase and number',
-            'string.pattern':'The password must be alphanumeric and contain a number'
+            'string.pattern':'The password must be alphanumeric and contain a number',
+            'string.empty':'Please enter your password'
         }),
 
-        userPhoto: joi.string().trim().required(),
+        userPhoto: joi.string().trim().required().messages({
+            'string.empty':'Please enter your photo url'
+        }),
 
         country: joi.string().trim().required(),
 

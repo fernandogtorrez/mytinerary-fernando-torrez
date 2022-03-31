@@ -16,12 +16,17 @@ const Activities = (props) => {
         <div className='activitieshome1'>
             {activities?.map(activity =>
             <div className='activitieshome2'>
-                <div className='activities2'>
-                    <img src={process.env.PUBLIC_URL+ `/images/${activity.imageAct}`}/>
+                <div className='activities2'
+                style={{
+                    backgroundImage: `url('${process.env.PUBLIC_URL}/images/${activity.imageAct}')`,
+                    backgroundSize: 'cover',
+                }}
+                >
+                    <div className='activities1'>
+                        <h1>{activity.name}</h1>
+                    </div>
                 </div>
-                <div className='activities1'>
-                    <h1>{activity.name}</h1>
-                </div>
+                
             </div>  
             )}
         </div>

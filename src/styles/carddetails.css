@@ -69,7 +69,9 @@
 }
 
 .hash{
-    color:#2275fa
+    color:#2275fa;
+    gap: 20px;
+    padding: 10px;
 }
 
 .icons{
@@ -96,6 +98,7 @@
     align-items: center;
     flex-wrap: wrap;
     gap: 20px;
+    padding: 25px;
 }
 
 .activitieshome2{
@@ -107,23 +110,20 @@
 }
 
 .activities1{
-    position: absolute;
+    width: 100%;
 }
 
 .activities1 h1{
     color: rgba(0, 0, 0, 0.767);
-    background-color: rgba(255, 255, 255, 0.356);
+    background-color: rgba(255, 255, 255, 0.418);
 }
 
 .activities2{
-    position: relative;
-}
-
-.activities2 img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 300px;
     height: 200px;
-    object-fit: cover;
-
 }
 
 .likeDislike{

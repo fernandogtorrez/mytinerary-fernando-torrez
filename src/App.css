@@ -49,3 +49,28 @@
   width: 80%;
   align-items: center;
 }
+
+.comment-signin{
+  align-items: center;
+  text-align: center;
+}
+
+.userIdImage{
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+}
+
+.card-header img{
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.card-header{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
