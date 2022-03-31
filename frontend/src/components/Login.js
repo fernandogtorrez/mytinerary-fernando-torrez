@@ -5,7 +5,7 @@ import "../styles/login.css";
 import {Link as LinkRouter} from 'react-router-dom'
 import { connect } from 'react-redux';
 import userActions from '../redux/actions/userActions';
-import FacebookSignIn from '../components/FacebookSignIn'
+import FacebookSignIn from './FacebookSignIn'
 import GoogleSignIn from './GoogleSignIn';
 
 const Login = (props) => {
