@@ -87,26 +87,28 @@ const Comments = (props) => {
                     {comment.userID?._id !== props.user?.id ?
                       <div class="card cardComments " key={comment._id}>
                         <div class="card-header">
-                          <p className='userName'>{comment.userID.firstName} {comment.userID.lastName}</p>
                           <img src={comment.userID.userPhoto}/>
-                        </div>
-                        <div class="card-body">
+                          <p className='userName'>{comment.userID.firstName} {comment.userID.lastName}</p>
+                          <div class="card-body">
                           <p class="card-text">
                             {comment.comment}
                           </p>
                         </div>
+                        </div>
+                        
                       </div> :
                       <div class="card cardComments">
                         <div class="card-header">
-                          <p className='userName'>{comment.userID.firstName} {comment.userID.lastName}</p>
                           <img className='userIdImage' src={comment.userID.userPhoto}/>
-                        </div>
-                        <div class="card-body ">
+                          <p className='userName'>{comment.userID.firstName} {comment.userID.lastName}</p>
+                          <div class="card-body ">
                           <textarea type="text" className="card-text textComments" onChange={(event) => setModifi(event.target.value)} defaultValue={comment.comment} />
                           <button id={comment._id} onClick={modificarComentario} class="btn btn-primary">Modify</button>
                           <button id={comment._id} onClick={eliminarComentario} class="btn btn-primary">Delet</button>
                           
                         </div>
+                        </div>
+                        
                       </div>
 
                     }
