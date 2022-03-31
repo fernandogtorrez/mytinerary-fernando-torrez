@@ -42,7 +42,7 @@ const usersControllers = {
         if(user){
             user.emailVerificado = true
             await user.save()
-            res.redirect('http://localhost:3000/')
+            res.redirect('https://mytinerary-torrez-fernando.herokuapp.com/')
         }
         else{ res.json({ success: false, response: 'Your email has not been verified'})}
     },

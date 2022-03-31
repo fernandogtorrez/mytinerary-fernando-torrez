@@ -100,7 +100,7 @@ const Comments = (props) => {
                       <div class="card cardComments">
                         <div class="card-header">
                           <img className='userIdImage' src={comment.userID.userPhoto}/>
-                          <p className='userName'>{comment.userID.firstName} {comment.userID.lastName}</p>
+                          <p className='userName'>{comment.userID.firstName} </p>
                           <div class="card-body ">
                           <textarea type="text" className="card-text textComments" onChange={(event) => setModifi(event.target.value)} defaultValue={comment.comment} />
                           <button id={comment._id} onClick={modificarComentario} class="btn btn-primary">Modify</button>
