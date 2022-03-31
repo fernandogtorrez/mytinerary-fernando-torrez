@@ -25,7 +25,7 @@ const citiesAction = {
     
     deleteOneCity: (id) =>{
         return async (dispatch,getState) =>{
-            const res = await axios.get('https://mytinerary-torrez-fernando.herokuapp.com/api/allcities')
+            const res = await axios.get('https://mytinerary-torrez-fernando.herokuapp.com/api/V1/allcities')
             dispatch({type: 'deleteCity', payload: res.data.response.ciudades})
 
         }
