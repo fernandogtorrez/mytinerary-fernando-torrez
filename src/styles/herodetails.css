@@ -10,7 +10,6 @@ body{
 .herodetails-container{
     width: 100%;
     height: 60vh;
-    min-height: auto;
     background-size: initial;
     background-attachment: fixed;
     background-position: center;

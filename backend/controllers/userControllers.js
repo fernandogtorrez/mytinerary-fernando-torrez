@@ -19,7 +19,7 @@ const sendEmail = async (email, uniqueString) => {
     let mailOptions = {
         from: sender,
         to: email,
-        subject: 'Verificacion de email usuario',
+        subject: 'User email verification',
         html: `
         <div >
         <h1 style="color:red">Presiona <a href=http://localhost:4000/api/V1/verify/${uniqueString}>aqui</a> para confirma tu email. Gracias </h1>
@@ -29,7 +29,7 @@ const sendEmail = async (email, uniqueString) => {
 
     await transporter.sendMail(mailOptions, function(error, response){
         if(error){console.log(error)}
-        else{console.log('Mensaje enviado')}
+        else{console.log('Message sent')}
     })
 }
 
@@ -44,7 +44,7 @@ const usersControllers = {
             await user.save()
             res.redirect('http://localhost:3000/')
         }
-        else{ res.json({ success: false, response: 'Su email no se ha verificado'})}
+        else{ res.json({ success: false, response: 'Your email has not been verified'})}
     },
 
     signUpUser: async (req,res) => {
@@ -61,7 +61,7 @@ const usersControllers = {
                     res.json({
                         success: false,
                         from: 'signup',
-                        message: 'Ya has realizado tu SignUp de esta forma, por favor realiza SignIn'
+                        message: 'You have already done your SignUp in this way, please SignIn'
                     })
                 }else{
                     const contraseñaHasheada = bcryptjs.hashSync(password, 10)
@@ -75,7 +75,7 @@ const usersControllers = {
                         res.json({
                             success: true,
                             from: 'signup',
-                            message: 'Te enviamos un email para validarlo, por favor verifica tu casilla para completar el signUp y agregarlo a tus metodos de SignIn'
+                            message: 'We sent you an email to validate it, please verify your email to complete the signUp and add it to your SignIn methods'
                         })
                     }else{
                         usuarioExiste.save()
@@ -83,7 +83,7 @@ const usersControllers = {
                         res.json({
                             success: true,
                             from:'signup',
-                            message: 'Agregamos '+from+' a tus medios para realizar signIn'
+                            message: 'We add '+from+' to your means to signIn'
                         })
                     }
                 }
@@ -111,7 +111,7 @@ const usersControllers = {
                     res.json({
                         success:true,
                         from: 'signup',
-                        message: 'Felicitaciones se ha creado tu usuario con '+from
+                        message: 'Congratulations your user has been created with '+from
                     })// AGREGAMOS MENSAJE DE VERIFICACION
                 }else{
                     // PASAR EMAIL VERIFICADO A FALSE
@@ -122,7 +122,7 @@ const usersControllers = {
                     res.json({
                         success: true,
                         from: 'signup',
-                        message: 'Te enviamos un email para validarlo, por favor verifica tu casilla para completar el signUp'
+                        message: 'We sent you an email to validate it, please verify your email to complete the signUp'
                     })// AGREGAMOS MENSAJE DE VERIFICACION
                 }
             }
@@ -130,7 +130,7 @@ const usersControllers = {
             console.log(error);
             res.json({
                 success: false,
-                message: 'Algo a salido mal, intentalo en unos minutos'
+                message: 'Something went wrong, try again in a few minutes'
             })// CAPTURA EL ERROR
         }
     },
@@ -143,7 +143,7 @@ const usersControllers = {
             if(!usuarioExiste){// PRIMERO VERIFICA QUE EL USUARIO EXISTA
                 res.json({
                     success: false,
-                    message: 'Tu usuario no ha sido registrado, realiza signUp'
+                    message: 'Your user has not been registered, signUp'
                 })
             }else{
                 if(from !== 'form-Signin'){
@@ -166,12 +166,12 @@ const usersControllers = {
                             success: true,
                             from: from,
                             response: {token, userData},
-                            message: `Bienvenido nuevamente ${userData.firstName} ${userData.lastName}`,
+                            message: `Welcome again ${userData.firstName} ${userData.lastName}`,
                         })
                     }else{
                         res.json({
                             from: from,
-                            message:'No has realizado el registro con '+from+' si quieres ingresar con este metodo debes hacer el signUp con '+from
+                            message:'You have not registered with '+from+' if you want to enter with this method you must do the signUp with '+from
                         })
                     }
                 }else{
@@ -193,20 +193,20 @@ const usersControllers = {
                                 success: true,
                                 from: from,
                                 response: {token, userData},
-                                message: `Bienvenido nuevamente ${userData.firstName} ${userData.lastName}`,
+                                message: `Welcome again ${userData.firstName} ${userData.lastName}`,
                             })
                         }else{
                             res.json({
                                 success:false,
                                 from: from,
-                                message: 'El usuarion o el password no coinciden',
+                                message: 'The username or the password do not match',
                             })
                         }
                     }else{
                         res.json({
                             success: false,
                             from: from,
-                            message: 'No has verificado tu email, por favor verifica tu casilla de emails para completar tu signUp'
+                            message: 'You have not verified your email, please verify your email to complete your signUp'
                         })
                     }
                 }// SI NO ESTA VERIFICADO
@@ -215,7 +215,7 @@ const usersControllers = {
             console.log(error);
             res.json({
                 success:false,
-                message: 'Algo a salido mal, intentalo en unos minutos'
+                message: 'Something went wrong, try again in a few minutes'
             })
         }
     },
@@ -223,17 +223,17 @@ const usersControllers = {
         const email = req.body.closeuser
         const user = await User.findOne({email})
         await user.save()
-        res.json(console.log('sesion cerrada '+email))
+        res.json(console.log('Closed session '+email))
     },
     verificarToken:(req, res) => {
         console.log(req.user)
         if(!req.err){
         res.json({success:true,
                   response:{id:req.user.id, firstName:req.user.firstName,lastName:req.user.lastName,email:req.user.email,userPhoto: req.user.userPhoto,country:req.user.country, from:"token"},
-                  message:"Bienvenido nuevamente "+req.user.firstName}) 
+                  message:"Welcome again "+req.user.firstName}) 
         }else{
             res.json({success:false,
-            message:"Por favor realiza nuevamente signIn"}) 
+            message:"Please signIn again"}) 
         }
     }
 }

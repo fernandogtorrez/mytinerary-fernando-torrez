@@ -25,7 +25,7 @@ const itinerariesController = {
         let error = null
 
         try{
-            itinerario = await Itinerarios.find({id_city:id})
+            itinerario = await Itinerarios.find({id_city:id}).populate('comments.userID')
             console.log(itinerario)
         }catch(err){
             error = err
@@ -94,17 +94,15 @@ const itinerariesController = {
     },
 
     addComment: async (req, res) => {
-        console.log(req.body);
         const {comment, itinerario} = req.body.comment
         const user = req.user._id
         try {
             const nuevoComment = await Itinerarios.findOneAndUpdate({_id:itinerario}, {$push: {comments: {comment: comment, userID: user}}}, {new: true}).populate('comments.userID')
-            res.json({ success: true, response:{nuevoComment}, message:"gracias por dejarnos tu comentario" })
-            console.log(nuevoComment);
+            res.json({ success: true, response:{nuevoComment}, message:"Thanks you for let us your comment" })
         }
         catch (error) {
             console.log(error)
-            res.json({ success: false, message: "Algo a salido mal intentalo en unos minutos" })
+            res.json({ success: false, message: "Something went wrong try again in a few minutes" })
         }
 
     },
@@ -114,13 +112,12 @@ const itinerariesController = {
         const user = req.user._id
         try {
             const newComment = await Itinerarios.findOneAndUpdate({"comments._id":commentID}, {$set: {"comments.$.comment": comment}}, {new: true})
-            console.log(newComment)
-            res.json({ success: true, response:{newComment}, message:"tu comentario a sido modificado" })
+            res.json({ success: true, response:{newComment}, message:"Your comment has been modified" })
 
         }
         catch (error) {
             console.log(error)
-            res.json({ success: true, message: "Algo a salido mal intentalo en unos minutos" })
+            res.json({ success: true, message: "Something went wrong try again in a few minutes" })
         }
 
     },
@@ -130,13 +127,12 @@ const itinerariesController = {
         const user = req.user._id
         try {
             const deleteComment = await Itinerarios.findOneAndUpdate({"comments._id":id}, {$pull: {comments: {_id: id}}}, {new: true})
-          console.log(deleteComment)
-            res.json({ success: true, response:{deleteComment}, message: "has eliminado el comentario" })
+            res.json({ success: true, response:{deleteComment}, message: "You deleted the comment" })
 
         }
         catch (error) {
             console.log(error)
-            res.json({ success: false, message: "Algo a salido mal intentalo en unos minutos" })
+            res.json({ success: false, message: "Something went wrong try again in a few minutes" })
         }
 
     },

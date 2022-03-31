@@ -1,8 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import Herodetails from '../components/Herodetails'
 import Carddetails from '../components/Carddetails'
-import { connect, useSelector, useDispatch } from 'react-redux'
-import itinerarioReducer from '../redux/reducers/itineraryReducers'
+import { connect, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import itineraryAction from '../redux/actions/itineraryActions'
 

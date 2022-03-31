@@ -38,7 +38,6 @@ const activitiesController = {
     },
     
     cargarActividad: async(req, res)=>{
-        console.log(req.body)
         const {name, imageAct, id_itinerary}= req.body
         new Activities({
             name,
