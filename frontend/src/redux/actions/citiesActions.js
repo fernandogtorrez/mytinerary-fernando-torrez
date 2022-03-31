@@ -5,7 +5,7 @@ const citiesAction = {
 
     fetchCities: () => {
         return async(dispatch,getState)=>{
-            const res = await axios.get('https://mytinerary-torrez-fernando.herokuapp.com/api/allcities')
+            const res = await axios.get('https://mytinerary-torrez-fernando.herokuapp.com/api/V1/allcities')
             dispatch({type: 'fetch' ,payload:res.data.response.ciudades}) 
         }  
     },
@@ -18,7 +18,7 @@ const citiesAction = {
 
     fetchOneCity: (id) =>{
         return async (dispatch,getState) => {
-            const res = await axios.get(`https://mytinerary-torrez-fernando.herokuapp.com/api/allcities/${id}`)
+            const res = await axios.get(`https://mytinerary-torrez-fernando.herokuapp.com/api/V1/allcities/${id}`)
             dispatch({type: 'fetchOne', payload: res.data.response.ciudades})
         }
     },

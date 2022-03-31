@@ -14,7 +14,7 @@ const app = express()
 app.use(cors())
 app.use(express.json())
 app.use(passport.initialize())
-app.use('/api', Router)
+app.use('/api/V1', Router)
 
 if(process.env.NODE_ENV === 'production'){
     app.use(express.static('client/build'))
